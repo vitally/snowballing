@@ -1,0 +1,1279 @@
+[
+  {
+    "id": "a17104a525f917099cda254abe3de94040a2aae8",
+    "title": "Can Pretrained English Language Models Benefit Non-English NLP Systems in Low-Resource Scenarios?",
+    "year": 2024,
+    "abstract": "Pretrained language models have achieved great success in a wide range of natural language processing (NLP) problems, because they learn language representations from large-scale text corpora and can adapt to downstream tasks by finetuning them on annotated task data. However, such success relies on both large-scale text and annotated data, so the lack of training data is a major practical problem for many languages, especially low-resource languages. In this paper, we explore whether a pretrained English language model can benefit non-English NLP systems in low-resource scenarios, i.e., with limited text corpora or annotated data. To achieve this, we first propose cross-lingual knowledge transfer methods and then validate our methods in low-resource scenarios. Specifically, our cross-lingual knowledge transfer methods are applied in the training stages of language model pretraining or downstream finetuning. At the two stages, the methods are designed for the transfer of upstream general knowledge or downstream task-specific knowledge, respectively. In the experiments, we perform pretraining and finetuning with limited non-English data to simulate the low-resource scenarios. We evaluate our methods on ten downstream tasks over a wide range of languages, and present systematic comparisons among various knowledge transfer methods. Experimental results show that our methods successfully leverage a pretrained English language model to improve task performance in other languages. Besides, we demonstrate the multilinguality of the English language model in various application scenarios. Our findings imply the possibility to improve low-resource-language NLP systems with large-scale English language models.",
+    "doi": "10.1109/TASLP.2023.3267618",
+    "references": [
+      {
+        "id": "41e4ec29b65e58854d72bbe597af236c504c566a",
+        "title": "Cross-lingual Transferring of Pre-trained Contextualized Language Models",
+        "year": 2021,
+        "abstract": "Though the pre-trained contextualized language model (PrLM) has made a significant impact on NLP, training PrLMs in languages other than English can be impractical for two reasons: other languages often lack corpora sufficient for training powerful PrLMs, and because of the commonalities among human languages, computationally expensive PrLM training for different languages is somewhat redundant. In this work, building upon the recent works connecting cross-lingual model transferring and neural machine translation, we thus propose a novel cross-lingual model transferring framework for PrLMs: TreLM. To handle the symbol order and sequence length differences between languages, we propose an intermediate ``TRILayer\"structure that learns from these differences and creates a better transfer in our primary translation direction, as well as a new cross-lingual language modeling objective for transfer training. Additionally, we showcase an embedding aligning that adversarially adapts a PrLM's non-contextualized embedding space and the TRILayer structure to learn a text transformation network across languages, which addresses the vocabulary difference between languages. Experiments on both language understanding and structure parsing tasks show the proposed framework significantly outperforms language models trained from scratch with limited data in both performance and efficiency. Moreover, despite an insignificant performance loss compared to pre-training from scratch in resource-rich scenarios, our cross-lingual model transferring framework is significantly more economical."
+      },
+      {
+        "id": "0a03d2c46ba4c3160e4e011eb52cb5a13cde1fbd",
+        "title": "DeltaLM: Encoder-Decoder Pre-training for Language Generation and Translation by Augmenting Pretrained Multilingual Encoders",
+        "year": 2021,
+        "abstract": "While pretrained encoders have achieved success in various natural language understanding (NLU) tasks, there is a gap between these pretrained encoders and natural language generation (NLG). NLG tasks are often based on the encoder-decoder framework, where the pretrained encoders can only benefit part of it. To reduce this gap, we introduce DeltaLM, a pretrained multilingual encoder-decoder model that regards the decoder as the task layer of off-the-shelf pretrained encoders. Specifically, we augment the pretrained multilingual encoder with a decoder and pre-train it in a self-supervised way. To take advantage of both the large-scale monolingual data and bilingual data, we adopt the span corruption and translation span corruption as the pre-training tasks. Experiments show that DeltaLM outperforms various strong baselines on both natural language generation and translation tasks, including machine translation, abstractive text summarization, data-to-text, and question generation. The code and pretrained models are available at \\url{https://aka.ms/deltalm}."
+      },
+      {
+        "id": "722ad6ac92286507437b31486f47987d6ece05c9",
+        "title": "BEiT: BERT Pre-Training of Image Transformers",
+        "year": 2021,
+        "abstract": "We introduce a self-supervised vision representation model BEiT, which stands for Bidirectional Encoder representation from Image Transformers. Following BERT developed in the natural language processing area, we propose a masked image modeling task to pretrain vision Transformers. Specifically, each image has two views in our pre-training, i.e, image patches (such as 16x16 pixels), and visual tokens (i.e., discrete tokens). We first\"tokenize\"the original image into visual tokens. Then we randomly mask some image patches and fed them into the backbone Transformer. The pre-training objective is to recover the original visual tokens based on the corrupted image patches. After pre-training BEiT, we directly fine-tune the model parameters on downstream tasks by appending task layers upon the pretrained encoder. Experimental results on image classification and semantic segmentation show that our model achieves competitive results with previous pre-training methods. For example, base-size BEiT achieves 83.2% top-1 accuracy on ImageNet-1K, significantly outperforming from-scratch DeiT training (81.8%) with the same setup. Moreover, large-size BEiT obtains 86.3% only using ImageNet-1K, even outperforming ViT-L with supervised pre-training on ImageNet-22K (85.2%). The code and pretrained models are available at https://aka.ms/beit."
+      },
+      {
+        "id": "4fffa5245d3972077c83614c2a08a47cb578631e",
+        "title": "HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units",
+        "year": 2021,
+        "abstract": "Self-supervised approaches for speech representation learning are challenged by three unique problems: (1) there are multiple sound units in each input utterance, (2) there is no lexicon of input sound units during the pre-training phase, and (3) sound units have variable lengths with no explicit segmentation. To deal with these three problems, we propose the Hidden-Unit BERT (HuBERT) approach for self-supervised speech representation learning, which utilizes an offline clustering step to provide aligned target labels for a BERT-like prediction loss. A key ingredient of our approach is applying the prediction loss over the masked regions only, which forces the model to learn a combined acoustic and language model over the continuous inputs. HuBERT relies primarily on the consistency of the unsupervised clustering step rather than the intrinsic quality of the assigned cluster labels. Starting with a simple k-means teacher of 100 clusters, and using two iterations of clustering, the HuBERT model either matches or improves upon the state-of-the-art wav2vec 2.0 performance on the Librispeech (960 h) and Libri-light (60,000 h) benchmarks with 10 min, 1 h, 10 h, 100 h, and 960 h fine-tuning subsets. Using a 1B parameter model, HuBERT shows up to 19% and 13% relative WER reduction on the more challenging dev-other and test-other evaluation subsets.12",
+        "doi": "10.1109/taslp.2021.3122291"
+      },
+      {
+        "id": "38d3657ee15f2612330eb5e036bbc38d9137f75a",
+        "title": "ZmBART: An Unsupervised Cross-lingual Transfer Framework for Language Generation",
+        "year": 2021,
+        "abstract": "Despite the recent advancement in NLP research, cross-lingual transfer for natural language generation is relatively understudied. In this work, we transfer supervision from high resource language (HRL) to multiple low-resource languages (LRLs) for natural language generation (NLG). We consider four NLG tasks (text summarization, question generation, news headline generation, and distractor generation) and three syntactically diverse languages, i.e., English, Hindi, and Japanese. We propose an unsupervised cross-lingual language generation framework (called ZmBART) that does not use any parallel or pseudo-parallel/back-translated data. In this framework, we further pre-train mBART sequence-to-sequence denoising auto-encoder model with an auxiliary task using monolingual data of three languages. The objective function of the auxiliary task is close to the target tasks which enriches the multi-lingual latent representation of mBART and provides good initialization for target tasks. Then, this model is fine-tuned with task-specific supervised English data and directly evaluated with low-resource languages in the Zero-shot setting. To overcome catastrophic forgetting and spurious correlation issues, we applied freezing model component and data argumentation approaches respectively. This simple modeling approach gave us promising results.We experimented with few-shot training (with 1000 supervised data points) which boosted the model performance further. We performed several ablations and cross-lingual transferability analyses to demonstrate the robustness of ZmBART.",
+        "doi": "10.18653/v1/2021.findings-acl.248"
+      },
+      {
+        "id": "279a19b9eba7afd513394c7a733834b0f41f97fb",
+        "title": "mT6: Multilingual Pretrained Text-to-Text Transformer with Translation Pairs",
+        "year": 2021,
+        "abstract": "Multilingual T5 pretrains a sequence-to-sequence model on massive monolingual texts, which has shown promising results on many cross-lingual tasks. In this paper, we improve multilingual text-to-text transfer Transformer with translation pairs (mT6). Specifically, we explore three cross-lingual text-to-text pre-training tasks, namely, machine translation, translation pair span corruption, and translation span corruption. In addition, we propose a partially non-autoregressive objective for text-to-text pre-training. We evaluate the methods on seven multilingual benchmark datasets, including sentence classification, named entity recognition, question answering, and abstractive summarization. Experimental results show that the proposed mT6 improves cross-lingual transferability over mT5.",
+        "doi": "10.18653/v1/2021.emnlp-main.125"
+      },
+      {
+        "id": "c3a662b864673d8cc7469051419ab8819926d4b0",
+        "title": "Identifying Elements Essential for BERT’s Multilinguality",
+        "year": 2020,
+        "abstract": "It has been shown that multilingual BERT (mBERT) yields high quality multilingual representations and enables effective zero-shot transfer. This is surprising given that mBERT does not use any crosslingual signal during training. While recent literature has studied this phenomenon, the reasons for the multilinguality are still somewhat obscure. We aim to identify architectural properties of BERT and linguistic properties of languages that are necessary for BERT to become multilingual. To allow for fast experimentation we propose an efficient setup with small BERT models trained on a mix of synthetic and natural data. Overall, we identify four architectural and two linguistic elements that influence multilinguality. Based on our insights, we experiment with a multilingual pretraining setup that modifies the masking strategy using VecMap, i.e., unsupervised embedding alignment. Experiments on XNLI with three languages indicate that our findings transfer from our small setup to larger scale settings.",
+        "doi": "10.18653/v1/2020.emnlp-main.358"
+      },
+      {
+        "id": "cd5a4c3ad315a40ff3d4456a550be818bc5ec7af",
+        "title": "VECO: Variable and Flexible Cross-lingual Pre-training for Language Understanding and Generation",
+        "year": 2020,
+        "abstract": "Existing work in multilingual pretraining has demonstrated the potential of cross-lingual transferability by training a unified Transformer encoder for multiple languages. However, much of this work only relies on the shared vocabulary and bilingual contexts to encourage the correlation across languages, which is loose and implicit for aligning the contextual representations between languages. In this paper, we plug a cross-attention module into the Transformer encoder to explicitly build the interdependence between languages. It can effectively avoid the degeneration of predicting masked words only conditioned on the context in its own language. More importantly, when fine-tuning on downstream tasks, the cross-attention module can be plugged in or out on-demand, thus naturally benefiting a wider range of cross-lingual tasks, from language understanding to generation. As a result, the proposed cross-lingual model delivers new state-of-the-art results on various cross-lingual understanding tasks of the XTREME benchmark, covering text classification, sequence labeling, question answering, and sentence retrieval. For cross-lingual generation tasks, it also outperforms all existing cross-lingual models and state-of-the-art Transformer variants on WMT14 English-to-German and English-to-French translation datasets, with gains of up to 1 2 BLEU.",
+        "doi": "10.18653/v1/2021.acl-long.308"
+      },
+      {
+        "id": "50851e9e16b52e14c422b6e937cfd3ed063b6998",
+        "title": "Explicit Alignment Objectives for Multilingual Bidirectional Encoders",
+        "year": 2020,
+        "abstract": "Pre-trained cross-lingual encoders such as mBERT (Devlin et al., 2019) and XLM-R (Conneau et al., 2020) have proven impressively effective at enabling transfer-learning of NLP systems from high-resource languages to low-resource languages. This success comes despite the fact that there is no explicit objective to align the contextual embeddings of words/sentences with similar meanings across languages together in the same space. In this paper, we present a new method for learning multilingual encoders, AMBER (Aligned Multilingual Bidirectional EncodeR). AMBER is trained on additional parallel data using two explicit alignment objectives that align the multilingual representations at different granularities. We conduct experiments on zero-shot cross-lingual transfer learning for different tasks including sequence tagging, sentence retrieval and sentence classification. Experimental results on the tasks in the XTREME benchmark (Hu et al., 2020) show that AMBER obtains gains of up to 1.1 average F1 score on sequence tagging and up to 27.3 average accuracy on retrieval over the XLM-R-large model which has 3.2x the parameters of AMBER. Our code and models are available at http://github.com/junjiehu/amber.",
+        "doi": "10.18653/V1/2021.NAACL-MAIN.284"
+      },
+      {
+        "id": "226a962e9e2e01cafc3803018bb8bf511d549e9f",
+        "title": "Pre-training Multilingual Neural Machine Translation by Leveraging Alignment Information",
+        "year": 2020,
+        "abstract": "We investigate the following question for machine translation (MT): can we develop a single universal MT model to serve as the common seed and obtain derivative and improved models on arbitrary language pairs? We propose mRASP, an approach to pre-train a universal multilingual neural machine translation model. Our key idea in mRASP is its novel technique of random aligned substitution, which brings words and phrases with similar meanings across multiple languages closer in the representation space. We pre-train a mRASP model on 32 language pairs jointly with only public datasets. The model is then fine-tuned on downstream language pairs to obtain specialized MT models. We carry out extensive experiments on 42 translation directions across a diverse settings, including low, medium, rich resource, and as well as transferring to exotic language pairs. Experimental results demonstrate that mRASP achieves significant performance improvement compared to directly training on those target pairs. It is the first time to verify that multiple low-resource language pairs can be utilized to improve rich resource MT. Surprisingly, mRASP is even able to improve the translation quality on exotic languages that never occur in the pre-training corpus. Code, data, and pre-trained models are available at this https URL.",
+        "doi": "10.18653/v1/2020.emnlp-main.210"
+      },
+      {
+        "id": "27ef20774bde3d529df93468823e3c09e79f8294",
+        "title": "Inducing Language-Agnostic Multilingual Representations",
+        "year": 2020,
+        "abstract": "Cross-lingual representations have the potential to make NLP techniques available to the vast majority of languages in the world. However, they currently require large pretraining corpora or access to typologically similar languages. In this work, we address these obstacles by removing language identity signals from multilingual embeddings. We examine three approaches for this: (i) re-aligning the vector spaces of target languages (all together) to a pivot source language; (ii) removing language-specific means and variances, which yields better discriminativeness of embeddings as a by-product; and (iii) increasing input similarity across languages by removing morphological contractions and sentence reordering. We evaluate on XNLI and reference-free MT evaluation across 19 typologically diverse languages. Our findings expose the limitations of these approaches—unlike vector normalization, vector space re-alignment and text normalization do not achieve consistent gains across encoders and languages. Due to the approaches’ additive effects, their combination decreases the cross-lingual transfer gap by 8.9 points (m-BERT) and 18.2 points (XLM-R) on average across all tasks and languages, however.",
+        "doi": "10.18653/v1/2021.starsem-1.22"
+      },
+      {
+        "id": "4ceff7472c04ee6d76bce89d61ba4b445d8dbf74",
+        "title": "InfoXLM: An Information-Theoretic Framework for Cross-Lingual Language Model Pre-Training",
+        "year": 2020,
+        "abstract": "In this work, we present an information-theoretic framework that formulates cross-lingual language model pre-training as maximizing mutual information between multilingual-multi-granularity texts. The unified view helps us to better understand the existing methods for learning cross-lingual representations. More importantly, inspired by the framework, we propose a new pre-training task based on contrastive learning. Specifically, we regard a bilingual sentence pair as two views of the same meaning and encourage their encoded representations to be more similar than the negative examples. By leveraging both monolingual and parallel corpora, we jointly train the pretext tasks to improve the cross-lingual transferability of pre-trained models. Experimental results on several benchmarks show that our approach achieves considerably better performance. The code and pre-trained models are available at https://aka.ms/infoxlm.",
+        "doi": "10.18653/V1/2021.NAACL-MAIN.280"
+      },
+      {
+        "id": "b896b846ae180d804c7290d8b9ae9ffc55325866",
+        "title": "Language-agnostic BERT Sentence Embedding",
+        "year": 2020,
+        "abstract": "While BERT is an effective method for learning monolingual sentence embeddings for semantic similarity and embedding based transfer learning BERT based cross-lingual sentence embeddings have yet to be explored. We systematically investigate methods for learning multilingual sentence embeddings by combining the best methods for learning monolingual and cross-lingual representations including: masked language modeling (MLM), translation language modeling (TLM), dual encoder translation ranking, and additive margin softmax. We show that introducing a pre-trained multilingual language model dramatically reduces the amount of parallel training data required to achieve good performance by 80%. Composing the best of these methods produces a model that achieves 83.7% bi-text retrieval accuracy over 112 languages on Tatoeba, well above the 65.5% achieved by LASER, while still performing competitively on monolingual transfer learning benchmarks. Parallel data mined from CommonCrawl using our best model is shown to train competitive NMT models for en-zh and en-de. We publicly release our best multilingual sentence embedding model for 109+ languages at https://tfhub.dev/google/LaBSE.",
+        "doi": "10.18653/v1/2022.acl-long.62"
+      },
+      {
+        "id": "6b85b63579a916f705a8e10a49bd8d849d91b1fc",
+        "title": "Language Models are Few-Shot Learners",
+        "year": 2020,
+        "abstract": "Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to do. Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same time, we also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally, we find that GPT-3 can generate samples of news articles which human evaluators have difficulty distinguishing from articles written by humans. We discuss broader societal impacts of this finding and of GPT-3 in general."
+      },
+      {
+        "id": "8f34ee2ec88e8b19b2736de55eb170539d26e527",
+        "title": "Making Monolingual Sentence Embeddings Multilingual Using Knowledge Distillation",
+        "year": 2020,
+        "abstract": "We present an easy and efficient method to extend existing sentence embedding models to new languages. This allows to create multilingual versions from previously monolingual models. The training is based on the idea that a translated sentence should be mapped to the same location in the vector space as the original sentence. We use the original (monolingual) model to generate sentence embeddings for the source language and then train a new system on translated sentences to mimic the original model. Compared to other methods for training multilingual sentence embeddings, this approach has several advantages: It is easy to extend existing models with relatively few samples to new languages, it is easier to ensure desired properties for the vector space, and the hardware requirements for training is lower. We demonstrate the effectiveness of our approach for 10 languages from various language families. Code to extend sentence embeddings models to more than 400 languages is publicly available.",
+        "doi": "10.18653/v1/2020.emnlp-main.365"
+      },
+      {
+        "id": "8425717e0bff9497498bc34931928cf8ee01f555",
+        "title": "SimAlign: High Quality Word Alignments without Parallel Training Data using Static and Contextualized Embeddings",
+        "year": 2020,
+        "abstract": "Word alignments are useful for tasks like statistical and neural machine translation (NMT) and cross-lingual annotation projection. Statistical word aligners perform well, as do methods that extract alignments jointly with translations in NMT. However, most approaches require parallel training data and quality decreases as less training data is available. We propose word alignment methods that require no parallel data. The key idea is to leverage multilingual word embeddings – both static and contextualized – for word alignment. Our multilingual embeddings are created from monolingual data only without relying on any parallel data or dictionaries. We find that alignments created from embeddings are superior for four and comparable for two language pairs compared to those produced by traditional statistical aligners – even with abundant parallel data; e.g., contextualized embeddings achieve a word alignment F1 for English-German that is 5 percentage points higher than eflomal, a high-quality statistical aligner, trained on 100k parallel sentences.",
+        "doi": "10.18653/v1/2020.findings-emnlp.147"
+      },
+      {
+        "id": "83a820fe19944a7621238b8cfcc0b8a0cbc0f4b6",
+        "title": "TyDi QA: A Benchmark for Information-Seeking Question Answering in Typologically Diverse Languages",
+        "year": 2020,
+        "abstract": "Abstract Confidently making progress on multilingual modeling requires challenging, trustworthy evaluations. We present TyDi QA—a question answering dataset covering 11 typologically diverse languages with 204K question-answer pairs. The languages of TyDi QA are diverse with regard to their typology—the set of linguistic features each language expresses—such that we expect models performing well on this set to generalize across a large number of the world’s languages. We present a quantitative analysis of the data quality and example-level qualitative linguistic analyses of observed language phenomena that would not be found in English-only corpora. To provide a realistic information-seeking task and avoid priming effects, questions are written by people who want to know the answer, but don’t know the answer yet, and the data is collected directly in each language without the use of translation.",
+        "doi": "10.1162/tacl_a_00317"
+      },
+      {
+        "id": "d592007d1c106fe1217604eb35664c7a5f07cb32",
+        "title": "Multilingual Alignment of Contextual Word Representations",
+        "year": 2020,
+        "abstract": "We propose procedures for evaluating and strengthening contextual embedding alignment and show that they are useful in analyzing and improving multilingual BERT. In particular, after our proposed alignment procedure, BERT exhibits significantly improved zero-shot performance on XNLI compared to the base model, remarkably matching pseudo-fully-supervised translate-train models for Bulgarian and Greek. Further, to measure the degree of alignment, we introduce a contextual version of word retrieval and show that it correlates well with downstream zero-shot transfer. Using this word retrieval task, we also analyze BERT and find that it exhibits systematic deficiencies, e.g. worse alignment for open-class parts-of-speech and word pairs written in different scripts, that are corrected by the alignment procedure. These results support contextual alignment as a useful concept for understanding large multilingual pre-trained models."
+      },
+      {
+        "id": "80376bdec5f534be78ba82821f540590ebce5559",
+        "title": "How Much Knowledge Can You Pack into the Parameters of a Language Model?",
+        "year": 2020,
+        "abstract": "It has recently been observed that neural language models trained on unstructured text can implicitly store and retrieve knowledge using natural language queries. In this short paper, we measure the practical utility of this approach by fine-tuning pre-trained models to answer questions without access to any external context or knowledge. We show that this approach scales surprisingly well with model size and outperforms models that explicitly look up knowledge on the open-domain variants of Natural Questions and WebQuestions. To facilitate reproducibility and future work, we release our code and trained models.",
+        "doi": "10.18653/v1/2020.emnlp-main.437"
+      },
+      {
+        "id": "495da6f19baa09c6db3697d839e10432cdc25934",
+        "title": "Multilingual Denoising Pre-training for Neural Machine Translation",
+        "year": 2020,
+        "abstract": "Abstract This paper demonstrates that multilingual denoising pre-training produces significant performance gains across a wide variety of machine translation (MT) tasks. We present mBART—a sequence-to-sequence denoising auto-encoder pre-trained on large-scale monolingual corpora in many languages using the BART objective (Lewis et al., 2019). mBART is the first method for pre-training a complete sequence-to-sequence model by denoising full texts in multiple languages, whereas previous approaches have focused only on the encoder, decoder, or reconstructing parts of the text. Pre-training a complete model allows it to be directly fine-tuned for supervised (both sentence-level and document-level) and unsupervised machine translation, with no task- specific modifications. We demonstrate that adding mBART initialization produces performance gains in all but the highest-resource settings, including up to 12 BLEU points for low resource MT and over 5 BLEU points for many document-level and unsupervised models. We also show that it enables transfer to language pairs with no bi-text or that were not in the pre-training corpus, and present extensive analysis of which factors contribute the most to effective pre-training.1",
+        "doi": "10.1162/tacl_a_00343"
+      },
+      {
+        "id": "81dd3faf762ad8f084ab1d7b8fc9e77e9e160f85",
+        "title": "How Can We Know What Language Models Know?",
+        "year": 2019,
+        "abstract": "Abstract Recent work has presented intriguing results examining the knowledge contained in language models (LMs) by having the LM fill in the blanks of prompts such as “Obama is a __ by profession”. These prompts are usually manually created, and quite possibly sub-optimal; another prompt such as “Obama worked as a __ ” may result in more accurately predicting the correct profession. Because of this, given an inappropriate prompt, we might fail to retrieve facts that the LM does know, and thus any given prompt only provides a lower bound estimate of the knowledge contained in an LM. In this paper, we attempt to more accurately estimate the knowledge contained in LMs by automatically discovering better prompts to use in this querying process. Specifically, we propose mining-based and paraphrasing-based methods to automatically generate high-quality and diverse prompts, as well as ensemble methods to combine answers from different prompts. Extensive experiments on the LAMA benchmark for extracting relational knowledge from LMs demonstrate that our methods can improve accuracy from 31.1% to 39.6%, providing a tighter lower bound on what LMs know. We have released the code and the resulting LM Prompt And Query Archive (LPAQA) at https://github.com/jzbjyb/LPAQA.",
+        "doi": "10.1162/tacl_a_00324"
+      },
+      {
+        "id": "b61c6405f4de381758e8b52a20313554d68a9d85",
+        "title": "CamemBERT: a Tasty French Language Model",
+        "year": 2019,
+        "abstract": "Pretrained language models are now ubiquitous in Natural Language Processing. Despite their success, most available models have either been trained on English data or on the concatenation of data in multiple languages. This makes practical use of such models –in all languages except English– very limited. In this paper, we investigate the feasibility of training monolingual Transformer-based language models for other languages, taking French as an example and evaluating our language models on part-of-speech tagging, dependency parsing, named entity recognition and natural language inference tasks. We show that the use of web crawled data is preferable to the use of Wikipedia data. More surprisingly, we show that a relatively small web crawled dataset (4GB) leads to results that are as good as those obtained using larger datasets (130+GB). Our best performing model CamemBERT reaches or improves the state of the art in all four downstream tasks.",
+        "doi": "10.18653/V1/2020.ACL-MAIN.645"
+      },
+      {
+        "id": "1687275b21d2c59fb09999768f1f07794fa50d7b",
+        "title": "Can Monolingual Pretrained Models Help Cross-Lingual Classification?",
+        "year": 2019,
+        "abstract": "Multilingual pretrained language models (such as multilingual BERT) have achieved impressive results for cross-lingual transfer. However, due to the constant model capacity, multilingual pre-training usually lags behind the monolingual competitors. In this work, we present two approaches to improve zero-shot cross-lingual classification, by transferring the knowledge from monolingual pretrained models to multilingual ones. Experimental results on two cross-lingual classification benchmarks show that our methods outperform vanilla multilingual fine-tuning."
+      },
+      {
+        "id": "6fec3e579c7cd4f13bdabbee2b6ac2e8ff5941c6",
+        "title": "Unsupervised Cross-lingual Representation Learning at Scale",
+        "year": 2019,
+        "abstract": "This paper shows that pretraining multilingual language models at scale leads to significant performance gains for a wide range of cross-lingual transfer tasks. We train a Transformer-based masked language model on one hundred languages, using more than two terabytes of filtered CommonCrawl data. Our model, dubbed XLM-R, significantly outperforms multilingual BERT (mBERT) on a variety of cross-lingual benchmarks, including +14.6% average accuracy on XNLI, +13% average F1 score on MLQA, and +2.4% F1 score on NER. XLM-R performs particularly well on low-resource languages, improving 15.7% in XNLI accuracy for Swahili and 11.4% for Urdu over previous XLM models. We also present a detailed empirical analysis of the key factors that are required to achieve these gains, including the trade-offs between (1) positive transfer and capacity dilution and (2) the performance of high and low resource languages at scale. Finally, we show, for the first time, the possibility of multilingual modeling without sacrificing per-language performance; XLM-R is very competitive with strong monolingual models on the GLUE and XNLI benchmarks. We will make our code and models publicly available.",
+        "doi": "10.18653/v1/2020.acl-main.747"
+      },
+      {
+        "id": "395de0bd3837fdf4b4b5e5f04835bcc69c279481",
+        "title": "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension",
+        "year": 2019,
+        "abstract": "We present BART, a denoising autoencoder for pretraining sequence-to-sequence models. BART is trained by (1) corrupting text with an arbitrary noising function, and (2) learning a model to reconstruct the original text. It uses a standard Tranformer-based neural machine translation architecture which, despite its simplicity, can be seen as generalizing BERT (due to the bidirectional encoder), GPT (with the left-to-right decoder), and other recent pretraining schemes. We evaluate a number of noising approaches, finding the best performance by both randomly shuffling the order of sentences and using a novel in-filling scheme, where spans of text are replaced with a single mask token. BART is particularly effective when fine tuned for text generation but also works well for comprehension tasks. It matches the performance of RoBERTa on GLUE and SQuAD, and achieves new state-of-the-art results on a range of abstractive dialogue, question answering, and summarization tasks, with gains of up to 3.5 ROUGE. BART also provides a 1.1 BLEU increase over a back-translation system for machine translation, with only target language pretraining. We also replicate other pretraining schemes within the BART framework, to understand their effect on end-task performance.",
+        "doi": "10.18653/v1/2020.acl-main.703"
+      },
+      {
+        "id": "6c4b76232bb72897685d19b3d264c6ee3005bc2b",
+        "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+        "year": 2019,
+        "abstract": "Transfer learning, where a model is first pre-trained on a data-rich task before being fine-tuned on a downstream task, has emerged as a powerful technique in natural language processing (NLP). The effectiveness of transfer learning has given rise to a diversity of approaches, methodology, and practice. In this paper, we explore the landscape of transfer learning techniques for NLP by introducing a unified framework that converts every language problem into a text-to-text format. Our systematic study compares pre-training objectives, architectures, unlabeled datasets, transfer approaches, and other factors on dozens of language understanding tasks. By combining the insights from our exploration with scale and our new \"Colossal Clean Crawled Corpus\", we achieve state-of-the-art results on many benchmarks covering summarization, question answering, text classification, and more. To facilitate future work on transfer learning for NLP, we release our dataset, pre-trained models, and code."
+      },
+      {
+        "id": "2e347a977f14eca7cc5bbbb4c71145b75637340c",
+        "title": "MLQA: Evaluating Cross-lingual Extractive Question Answering",
+        "year": 2019,
+        "abstract": "Question answering (QA) models have shown rapid progress enabled by the availability of large, high-quality benchmark datasets. Such annotated datasets are difficult and costly to collect, and rarely exist in languages other than English, making building QA systems that work well in other languages challenging. In order to develop such systems, it is crucial to invest in high quality multilingual evaluation benchmarks to measure progress. We present MLQA, a multi-way aligned extractive QA evaluation benchmark intended to spur research in this area. MLQA contains QA instances in 7 languages, English, Arabic, German, Spanish, Hindi, Vietnamese and Simplified Chinese. MLQA has over 12K instances in English and 5K in each other language, with each instance parallel between 4 languages on average. We evaluate state-of-the-art cross-lingual models and machine-translation-based baselines on MLQA. In all cases, transfer results are shown to be significantly behind training-language performance.",
+        "doi": "10.18653/v1/2020.acl-main.653"
+      },
+      {
+        "id": "aa2e8b6eecaed5c4af018c03abe5eb8adcabaf47",
+        "title": "Cross-Lingual Natural Language Generation via Pre-Training",
+        "year": 2019,
+        "abstract": "In this work we focus on transferring supervision signals of natural language generation (NLG) tasks between multiple languages. We propose to pretrain the encoder and the decoder of a sequence-to-sequence model under both monolingual and cross-lingual settings. The pre-training objective encourages the model to represent different languages in the shared space, so that we can conduct zero-shot cross-lingual transfer. After the pre-training procedure, we use monolingual data to fine-tune the pre-trained model on downstream NLG tasks. Then the sequence-to-sequence model trained in a single language can be directly evaluated beyond that language (i.e., accepting multi-lingual input and producing multi-lingual output). Experimental results on question generation and abstractive summarization show that our model outperforms the machine-translation-based pipeline methods for zero-shot cross-lingual generation. Moreover, cross-lingual transfer improves NLG performance of low-resource languages by leveraging rich-resource language data. Our implementation and data are available at this https URL.",
+        "doi": "10.1609/AAAI.V34I05.6256"
+      },
+      {
+        "id": "65f788fb964901e3f1149a0a53317535ca85ed7d",
+        "title": "Unicoder: A Universal Language Encoder by Pre-training with Multiple Cross-lingual Tasks",
+        "year": 2019,
+        "abstract": "We present Unicoder, a universal language encoder that is insensitive to different languages. Given an arbitrary NLP task, a model can be trained with Unicoder using training data in one language and directly applied to inputs of the same task in other languages. Comparing to similar efforts such as Multilingual BERT and XLM , three new cross-lingual pre-training tasks are proposed, including cross-lingual word recovery, cross-lingual paraphrase classification and cross-lingual masked language model. These tasks help Unicoder learn the mappings among different languages from more perspectives. We also find that doing fine-tuning on multiple languages together can bring further improvement. Experiments are performed on two tasks: cross-lingual natural language inference (XNLI) and cross-lingual question answering (XQA), where XLM is our baseline. On XNLI, 1.8% averaged accuracy improvement (on 15 languages) is obtained. On XQA, which is a new cross-lingual dataset built by us, 5.5% averaged accuracy improvement (on French and German) is obtained.",
+        "doi": "10.18653/v1/D19-1252"
+      },
+      {
+        "id": "d0086b86103a620a86bc918746df0aa642e2a8a3",
+        "title": "Language Models as Knowledge Bases?",
+        "year": 2019,
+        "abstract": "Recent progress in pretraining language models on large textual corpora led to a surge of improvements for downstream NLP tasks. Whilst learning linguistic knowledge, these models may also be storing relational knowledge present in the training data, and may be able to answer queries structured as “fill-in-the-blank” cloze statements. Language models have many advantages over structured knowledge bases: they require no schema engineering, allow practitioners to query about an open class of relations, are easy to extend to more data, and require no human supervision to train. We present an in-depth analysis of the relational knowledge already present (without fine-tuning) in a wide range of state-of-the-art pretrained language models. We find that (i) without fine-tuning, BERT contains relational knowledge competitive with traditional NLP methods that have some access to oracle knowledge, (ii) BERT also does remarkably well on open-domain question answering against a supervised baseline, and (iii) certain types of factual knowledge are learned much more readily than others by standard language model pretraining approaches. The surprisingly strong ability of these models to recall factual knowledge without any fine-tuning demonstrates their potential as unsupervised open-domain QA systems. The code to reproduce our analysis is available at https://github.com/facebookresearch/LAMA.",
+        "doi": "10.18653/v1/D19-1250"
+      },
+      {
+        "id": "04a7021fe6be6bddcfae476493fcc7571e7c613c",
+        "title": "PAWS-X: A Cross-lingual Adversarial Dataset for Paraphrase Identification",
+        "year": 2019,
+        "abstract": "Most existing work on adversarial data generation focuses on English. For example, PAWS (Paraphrase Adversaries from Word Scrambling) consists of challenging English paraphrase identification pairs from Wikipedia and Quora. We remedy this gap with PAWS-X, a new dataset of 23,659 human translated PAWS evaluation pairs in six typologically distinct languages: French, Spanish, German, Chinese, Japanese, and Korean. We provide baseline numbers for three models with different capacity to capture non-local context and sentence structure, and using different multilingual training and evaluation regimes. Multilingual BERT fine-tuned on PAWS English plus machine-translated data performs the best, with a range of 83.1-90.8 accuracy across the non-English languages and an average accuracy gain of 23% over the next best model. PAWS-X shows the effectiveness of deep, multilingual pre-training while also leaving considerable headroom as a new challenge to drive multilingual research that better captures structure and contextual information.",
+        "doi": "10.18653/v1/D19-1382"
+      },
+      {
+        "id": "077f8329a7b6fa3b7c877a57b81eb6c18b5f87de",
+        "title": "RoBERTa: A Robustly Optimized BERT Pretraining Approach",
+        "year": 2019,
+        "abstract": "Language model pretraining has led to significant performance gains but careful comparison between different approaches is challenging. Training is computationally expensive, often done on private datasets of different sizes, and, as we will show, hyperparameter choices have significant impact on the final results. We present a replication study of BERT pretraining (Devlin et al., 2019) that carefully measures the impact of many key hyperparameters and training data size. We find that BERT was significantly undertrained, and can match or exceed the performance of every model published after it. Our best model achieves state-of-the-art results on GLUE, RACE and SQuAD. These results highlight the importance of previously overlooked design choices, and raise questions about the source of recently reported improvements. We release our models and code."
+      },
+      {
+        "id": "e0c6abdbdecf04ffac65c440da77fb9d66bb474c",
+        "title": "XLNet: Generalized Autoregressive Pretraining for Language Understanding",
+        "year": 2019,
+        "abstract": "With the capability of modeling bidirectional contexts, denoising autoencoding based pretraining like BERT achieves better performance than pretraining approaches based on autoregressive language modeling. However, relying on corrupting the input with masks, BERT neglects dependency between the masked positions and suffers from a pretrain-finetune discrepancy. In light of these pros and cons, we propose XLNet, a generalized autoregressive pretraining method that (1) enables learning bidirectional contexts by maximizing the expected likelihood over all permutations of the factorization order and (2) overcomes the limitations of BERT thanks to its autoregressive formulation. Furthermore, XLNet integrates ideas from Transformer-XL, the state-of-the-art autoregressive model, into pretraining. Empirically, under comparable experiment settings, XLNet outperforms BERT on 20 tasks, often by a large margin, including question answering, natural language inference, sentiment analysis, and document ranking."
+      },
+      {
+        "id": "809cc93921e4698bde891475254ad6dfba33d03b",
+        "title": "How Multilingual is Multilingual BERT?",
+        "year": 2019,
+        "abstract": "In this paper, we show that Multilingual BERT (M-BERT), released by Devlin et al. (2018) as a single language model pre-trained from monolingual corpora in 104 languages, is surprisingly good at zero-shot cross-lingual model transfer, in which task-specific annotations in one language are used to fine-tune the model for evaluation in another language. To understand why, we present a large number of probing experiments, showing that transfer is possible even to languages in different scripts, that transfer works best between typologically similar languages, that monolingual corpora can train models for code-switching, and that the model can find translation pairs. From these results, we can conclude that M-BERT does create multilingual representations, but that these representations exhibit systematic deficiencies affecting certain language pairs.",
+        "doi": "10.18653/v1/P19-1493"
+      },
+      {
+        "id": "2fa3f7ce620a1c7155daef6620dd6bb0e01934f3",
+        "title": "Beto, Bentz, Becas: The Surprising Cross-Lingual Effectiveness of BERT",
+        "year": 2019,
+        "abstract": "Pretrained contextual representation models (Peters et al., 2018; Devlin et al., 2018) have pushed forward the state-of-the-art on many NLP tasks. A new release of BERT (Devlin, 2018) includes a model simultaneously pretrained on 104 languages with impressive performance for zero-shot cross-lingual transfer on a natural language inference task. This paper explores the broader cross-lingual potential of mBERT (multilingual) as a zero shot language transfer model on 5 NLP tasks covering a total of 39 languages from various language families: NLI, document classification, NER, POS tagging, and dependency parsing. We compare mBERT with the best-published methods for zero-shot cross-lingual transfer and find mBERT competitive on each task. Additionally, we investigate the most effective strategy for utilizing mBERT in this manner, determine to what extent mBERT generalizes away from language specific features, and measure factors that influence cross-lingual transfer.",
+        "doi": "10.18653/v1/D19-1077"
+      },
+      {
+        "id": "ec4eba83f6b3266d9ae7cabb2b2cb1518f727edc",
+        "title": "Cross-lingual Language Model Pretraining",
+        "year": 2019,
+        "abstract": "Recent studies have demonstrated the efficiency of generative pretraining for English natural language understanding. In this work, we extend this approach to multiple languages and show the effectiveness of cross-lingual pretraining. We propose two methods to learn cross-lingual language models (XLMs): one unsupervised that only relies on monolingual data, and one supervised that leverages parallel data with a new cross-lingual language model objective. We obtain state-of-the-art results on cross-lingual classification, unsupervised and supervised machine translation. On XNLI, our approach pushes the state of the art by an absolute gain of 4.9% accuracy. On unsupervised machine translation, we obtain 34.3 BLEU on WMT’16 German-English, improving the previous state of the art by more than 9 BLEU. On supervised machine translation, we obtain a new state of the art of 38.5 BLEU on WMT’16 Romanian-English, outperforming the previous best approach by more than 4 BLEU. Our code and pretrained models will be made publicly available."
+      },
+      {
+        "id": "160563abbd75265b19afc8b4169bab9e1eb33d97",
+        "title": "Massively Multilingual Sentence Embeddings for Zero-Shot Cross-Lingual Transfer and Beyond",
+        "year": 2018,
+        "abstract": "Abstract We introduce an architecture to learn joint multilingual sentence representations for 93 languages, belonging to more than 30 different families and written in 28 different scripts. Our system uses a single BiLSTM encoder with a shared byte-pair encoding vocabulary for all languages, which is coupled with an auxiliary decoder and trained on publicly available parallel corpora. This enables us to learn a classifier on top of the resulting embeddings using English annotated data only, and transfer it to any of the 93 languages without any modification. Our experiments in cross-lingual natural language inference (XNLI data set), cross-lingual document classification (MLDoc data set), and parallel corpus mining (BUCC data set) show the effectiveness of our approach. We also introduce a new test set of aligned sentences in 112 languages, and show that our sentence embeddings obtain strong results in multilingual similarity search even for low- resource languages. Our implementation, the pre-trained encoder, and the multilingual test set are available at https://github.com/facebookresearch/LASER.",
+        "doi": "10.1162/tacl_a_00288"
+      },
+      {
+        "id": "1c3112ef8a346b9817382ed34a8c146c53d5bcf5",
+        "title": "XNLI: Evaluating Cross-lingual Sentence Representations",
+        "year": 2018,
+        "abstract": "State-of-the-art natural language processing systems rely on supervision in the form of annotated data to learn competent models. These models are generally trained on data in a single language (usually English), and cannot be directly used beyond that language. Since collecting data in every language is not realistic, there has been a growing interest in cross-lingual language understanding (XLU) and low-resource cross-language transfer. In this work, we construct an evaluation set for XLU by extending the development and test sets of the Multi-Genre Natural Language Inference Corpus (MultiNLI) to 14 languages, including low-resource languages such as Swahili and Urdu. We hope that our dataset, dubbed XNLI, will catalyze research in cross-lingual sentence understanding by providing an informative standard evaluation task. In addition, we provide several baselines for multilingual sentence understanding, including two based on machine translation systems, and two that use parallel data to train aligned multilingual bag-of-words and LSTM encoders. We find that XNLI represents a practical and challenging evaluation suite, and that directly translating the test data yields the best performance among available baselines.",
+        "doi": "10.18653/v1/D18-1269"
+      },
+      {
+        "id": "b5246fa284f86b544a7c31f050b3bd0defd053fd",
+        "title": "SentencePiece: A simple and language independent subword tokenizer and detokenizer for Neural Text Processing",
+        "year": 2018,
+        "abstract": "This paper describes SentencePiece, a language-independent subword tokenizer and detokenizer designed for Neural-based text processing, including Neural Machine Translation. It provides open-source C++ and Python implementations for subword units. While existing subword segmentation tools assume that the input is pre-tokenized into word sequences, SentencePiece can train subword models directly from raw sentences, which allows us to make a purely end-to-end and language independent system. We perform a validation experiment of NMT on English-Japanese machine translation, and find that it is possible to achieve comparable accuracy to direct subword training from raw sentences. We also compare the performance of subword training and segmentation with various configurations. SentencePiece is available under the Apache 2 license at https://github.com/google/sentencepiece.",
+        "doi": "10.18653/v1/D18-2012"
+      },
+      {
+        "id": "e73bd7f9bdc262b9b7fb60ca0d5230d3ab0fad5e",
+        "title": "Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates",
+        "year": 2018,
+        "abstract": "Subword units are an effective way to alleviate the open vocabulary problems in neural machine translation (NMT). While sentences are usually converted into unique subword sequences, subword segmentation is potentially ambiguous and multiple segmentations are possible even with the same vocabulary. The question addressed in this paper is whether it is possible to harness the segmentation ambiguity as a noise to improve the robustness of NMT. We present a simple regularization method, subword regularization, which trains the model with multiple subword segmentations probabilistically sampled during training. In addition, for better subword sampling, we propose a new subword segmentation algorithm based on a unigram language model. We experiment with multiple corpora and report consistent improvements especially on low resource and out-of-domain settings.",
+        "doi": "10.18653/v1/P18-1007"
+      },
+      {
+        "id": "562c09c112df56c5696c010d90a815d6018a86c8",
+        "title": "Word Translation Without Parallel Data",
+        "year": 2017,
+        "abstract": "State-of-the-art methods for learning cross-lingual word embeddings have relied on bilingual dictionaries or parallel corpora. Recent studies showed that the need for parallel data supervision can be alleviated with character-level information. While these methods showed encouraging results, they are not on par with their supervised counterparts and are limited to pairs of languages sharing a common alphabet. In this work, we show that we can build a bilingual dictionary between two languages without using any parallel corpora, by aligning monolingual word embedding spaces in an unsupervised way. Without using any character information, our model even outperforms existing supervised methods on cross-lingual tasks for some language pairs. Our experiments demonstrate that our method works very well also for distant language pairs, like English-Russian or English-Chinese. We finally describe experiments on the English-Esperanto low-resource language pair, on which there only exists a limited amount of parallel data, to show the potential impact of our method in fully unsupervised machine translation. Our code, embeddings and dictionaries are publicly available."
+      },
+      {
+        "id": "204e3073870fae3d05bcbc2f6a8e263d9b72e776",
+        "title": "Attention is All you Need",
+        "year": 2017,
+        "abstract": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data."
+      },
+      {
+        "id": "5ded2b8c64491b4a67f6d39ce473d4b9347a672e",
+        "title": "A Broad-Coverage Challenge Corpus for Sentence Understanding through Inference",
+        "year": 2017,
+        "abstract": "This paper introduces the Multi-Genre Natural Language Inference (MultiNLI) corpus, a dataset designed for use in the development and evaluation of machine learning models for sentence understanding. At 433k examples, this resource is one of the largest corpora available for natural language inference (a.k.a. recognizing textual entailment), improving upon available resources in both its coverage and difficulty. MultiNLI accomplishes this by offering data from ten distinct genres of written and spoken English, making it possible to evaluate systems on nearly the full complexity of the language, while supplying an explicit setting for evaluating cross-genre domain adaptation. In addition, an evaluation using existing machine learning models designed for the Stanford NLI corpus shows that it represents a substantially more difficult task than does that corpus, despite the two showing similar levels of inter-annotator agreement.",
+        "doi": "10.18653/v1/N18-1101"
+      },
+      {
+        "id": "57133ef4c4de4d54a57686b8a914b06e4ff4aab5",
+        "title": "Universal Dependencies 2.1",
+        "year": 2017,
+        "abstract": "Universal Dependencies is a project that seeks to develop cross-linguistically consistent treebank annotation for many languages, with the goal of facilitating multilingual parser development, cross-lingual learning, and parsing research from a language typology perspective. The annotation scheme is based on (universal) Stanford dependencies (de Marneffe et al., 2006, 2008, 2014), Google universal part-of-speech tags (Petrov et al., 2012), and the Interset interlingua for morphosyntactic tagsets (Zeman, 2008)."
+      },
+      {
+        "id": "05dd7254b632376973f3a1b4d39485da17814df5",
+        "title": "SQuAD: 100,000+ Questions for Machine Comprehension of Text",
+        "year": 2016,
+        "abstract": "We present the Stanford Question Answering Dataset (SQuAD), a new reading comprehension dataset consisting of 100,000+ questions posed by crowdworkers on a set of Wikipedia articles, where the answer to each question is a segment of text from the corresponding reading passage. We analyze the dataset to understand the types of reasoning required to answer the questions, leaning heavily on dependency and constituency trees. We build a strong logistic regression model, which achieves an F1 score of 51.0%, a significant improvement over a simple baseline (20%). However, human performance (86.8%) is much higher, indicating that the dataset presents a good challenge problem for future research. \nThe dataset is freely available at this https URL",
+        "doi": "10.18653/v1/D16-1264"
+      },
+      {
+        "id": "0c908739fbff75f03469d13d4a1a07de3414ee19",
+        "title": "Distilling the Knowledge in a Neural Network",
+        "year": 2015,
+        "abstract": "A very simple way to improve the performance of almost any machine learning algorithm is to train many different models on the same data and then to average their predictions. Unfortunately, making predictions using a whole ensemble of models is cumbersome and may be too computationally expensive to allow deployment to a large number of users, especially if the individual models are large neural nets. Caruana and his collaborators have shown that it is possible to compress the knowledge in an ensemble into a single model which is much easier to deploy and we develop this approach further using a different compression technique. We achieve some surprising results on MNIST and we show that we can significantly improve the acoustic model of a heavily used commercial system by distilling the knowledge in an ensemble of models into a single model. We also introduce a new type of ensemble composed of one or more full models and many specialist models which learn to distinguish fine-grained classes that the full models confuse. Unlike a mixture of experts, these specialist models can be trained rapidly and in parallel."
+      },
+      {
+        "id": "a6cb366736791bcccc5c8639de5a8f9636bf87e8",
+        "title": "Adam: A Method for Stochastic Optimization",
+        "year": 2014,
+        "abstract": "We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments. The method is straightforward to implement, is computationally efficient, has little memory requirements, is invariant to diagonal rescaling of the gradients, and is well suited for problems that are large in terms of data and/or parameters. The method is also appropriate for non-stationary objectives and problems with very noisy and/or sparse gradients. The hyper-parameters have intuitive interpretations and typically require little tuning. Some connections to related algorithms, on which Adam was inspired, are discussed. We also analyze the theoretical convergence properties of the algorithm and provide a regret bound on the convergence rate that is comparable to the best known results under the online convex optimization framework. Empirical results demonstrate that Adam works well in practice and compares favorably to other stochastic optimization methods. Finally, we discuss AdaMax, a variant of Adam based on the infinity norm."
+      },
+      {
+        "id": "fb3054bcaf1b6de06979cc50ea51d3f5e3560a19",
+        "title": "Cross-Language Text Classification Using Structural Correspondence Learning",
+        "year": 2010,
+        "abstract": "We present a new approach to cross-language text classification that builds on structural correspondence learning, a recently proposed theory for domain adaptation. The approach uses unlabeled documents, along with a simple word translation oracle, in order to induce task-specific, cross-lingual word correspondences. We report on analyses that reveal quantitative insights about the use of unlabeled data and the complexity of inter-language correspondence modeling. \n \nWe conduct experiments in the field of cross-language sentiment classification, employing English as source language, and German, French, and Japanese as target languages. The results are convincing; they demonstrate both the robustness and the competitiveness of the presented ideas."
+      },
+      {
+        "id": "de2df29b0a0312de7270c3f5a0af6af5645cf91a",
+        "title": "A Systematic Comparison of Various Statistical Alignment Models",
+        "year": 2003,
+        "abstract": "We present and compare various methods for computing word alignments using statistical or heuristic models. We consider the five alignment models presented in Brown, Della Pietra, Della Pietra, and Mercer (1993), the hidden Markov alignment model, smoothing techniques, and refinements. These statistical models are compared with two heuristic models based on the Dice coefficient. We present different methods for combining word alignments to perform a symmetrization of directed statistical alignment models. As evaluation criterion, we use the quality of the resulting Viterbi alignment compared to a manually produced reference alignment. We evaluate the models on the German-English Verbmobil task and the French-English Hansards task. We perform a detailed analysis of various design decisions of our statistical alignment system and evaluate these on training corpora of various sizes. An important result is that refined alignment models with a first-order dependence and a fertility model yield significantly better results than simple heuristic models. In the Appendix, we present an efficient training algorithm for the alignment models presented.",
+        "doi": "10.1162/089120103321337421"
+      },
+      {
+        "id": "1180bf7c1f15d5d472123a7b4aa5969baa5d5e7f",
+        "title": "SemFace: Pre-training Encoder and Decoder with a Semantic Interface for Neural Machine Translation",
+        "year": 2021,
+        "abstract": "While pre-training techniques are working very well in natural language processing, how to pre-train a decoder and effectively use it for neural machine translation (NMT) still remains a tricky issue. The main reason is that the cross-attention module between the encoder and decoder cannot be pre-trained, and the combined encoder-decoder model cannot work well in the fine-tuning stage because the inputs of the decoder cross-attention come from unknown encoder outputs. In this paper, we propose a better pre-training method for NMT by defining a semantic interface (SemFace) between the pre-trained encoder and the pre-trained decoder. Specifically, we propose two types of semantic interfaces, including CL-SemFace which regards cross-lingual embeddings as an interface, and VQ-SemFace which employs vector quantized embeddings to constrain the encoder outputs and decoder inputs in the same language-independent space. We conduct massive experiments on six supervised translation pairs and three unsupervised pairs. Experimental results demonstrate that our proposed SemFace can effectively connect the pre-trained encoder and decoder, and achieves significant improvement by 3.7 and 1.5 BLEU points on the two tasks respectively compared with previous pre-training-based NMT models.",
+        "doi": "10.18653/v1/2021.acl-long.348"
+      },
+      {
+        "id": null,
+        "title": "“Pre-trainingwithwholewordmaskingforChineseBERT,”",
+        "year": 2021,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "“Improvingpretrainedcross-linguallanguagemodelsviaself-labeledwordalignment,”in",
+        "year": 2021,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "“On learning universalrepresentationsacrosslanguages,”in",
+        "year": 2021,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "“XTREME:Amassivelymultilingualmulti-taskbenchmarkforevaluatingcross-lingualgeneralisation,”in",
+        "year": 2020,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "“Electra:Pre-training textencodersasdiscriminatorsratherthangenerators,”in",
+        "year": 2020,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "“Span-BERT:Improvingpre-trainingbyrepresentingandpredictingspans,”",
+        "year": 2020,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "“Cross-lingual ability ofmultilingualBERT:Anempiricalstudy,”in",
+        "year": 2020,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "“Alternatinglanguage modelingforcross-lingualpre-training,”in",
+        "year": 2020,
+        "abstract": null
+      },
+      {
+        "id": "df2b0e26d0599ce3e70df8a9da02e51594e0e992",
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+        "year": 2019,
+        "abstract": "We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5 (7.7 point absolute improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).",
+        "doi": "10.18653/v1/N19-1423"
+      },
+      {
+        "id": "cd18800a0fe0b668a1cc19f2ec95b5003d0a5035",
+        "title": "Improving Language Understanding by Generative Pre-Training",
+        "year": 2018,
+        "abstract": "Natural language understanding comprises a wide range of diverse tasks such as textual entailment, question answering, semantic similarity assessment, and document classiﬁcation. Although large unlabeled text corpora are abundant, labeled data for learning these speciﬁc tasks is scarce, making it challenging for discriminatively trained models to perform adequately. We demonstrate that large gains on these tasks can be realized by generative pre-training of a language model on a diverse corpus of unlabeled text, followed by discriminative ﬁne-tuning on each speciﬁc task. In contrast to previous approaches, we make use of task-aware input transformations during ﬁne-tuning to achieve effective transfer while requiring minimal changes to the model architecture. We demonstrate the effectiveness of our approach on a wide range of benchmarks for natural language understanding. Our general task-agnostic model outperforms discriminatively trained models that use architectures speciﬁcally crafted for each task, signiﬁcantly improving upon the state of the art in 9 out of the 12 tasks studied. For instance, we achieve absolute improvements of 8.9% on commonsense reasoning (Stories Cloze Test), 5.7% on question answering (RACE), and 1.5% on textual entailment (MultiNLI)."
+      },
+      {
+        "id": null,
+        "title": "“Cross-lingualnametaggingandlinkingfor282languages,”in",
+        "year": 2017,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "“Knowledgeneurons inpretrainedtransformers,”in",
+        "year": null,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "license agreement with IEEE. Restrictions apply",
+        "year": null,
+        "abstract": null
+      },
+      {
+        "key": "ref1",
+        "doi-asserted-by": "publisher",
+        "doi": "10.48550/arXiv.1810.04805"
+      },
+      {
+        "key": "ref5",
+        "first-page": "5926",
+        "volume-title": "Proc. Int. Conf. Mach. Learn.",
+        "author": "Song",
+        "year": "2019",
+        "title": "MASS: Masked sequence to sequence pre-training for language generation"
+      },
+      {
+        "key": "ref6",
+        "first-page": "4411",
+        "volume-title": "Proc. 37th Int. Conf. Mach. Learn.",
+        "author": "Hu",
+        "year": "2020",
+        "title": "XTREME: A massively multilingual multi-task benchmark for evaluating cross-lingual generalisation"
+      },
+      {
+        "key": "ref9",
+        "doi-asserted-by": "publisher",
+        "doi": "10.1109/TASLP.2021.3124365",
+        "id": "037aeb767ab431eeebc74a0b85df0d2f5641c652",
+        "title": "Pre-Training With Whole Word Masking for Chinese BERT",
+        "year": 2019,
+        "abstract": "Bidirectional Encoder Representations from Transformers (BERT) has shown marvelous improvements across various NLP tasks, and its consecutive variants have been proposed to further improve the performance of the pre-trained language models. In this paper, we aim to first introduce the whole word masking (wwm) strategy for Chinese BERT, along with a series of Chinese pre-trained language models. Then we also propose a simple but effective model called MacBERT, which improves upon RoBERTa in several ways. Especially, we propose a new masking strategy called MLM as correction (Mac). To demonstrate the effectiveness of these models, we create a series of Chinese pre-trained language models as our baselines, including BERT, RoBERTa, ELECTRA, RBT, etc. We carried out extensive experiments on ten Chinese NLP tasks to evaluate the created Chinese pre-trained language models as well as the proposed MacBERT. Experimental results show that MacBERT could achieve state-of-the-art performances on many NLP tasks, and we also ablate details with several findings that may help future research. We open-source our pre-trained language models for further facilitating our research community.1"
+      },
+      {
+        "key": "ref10",
+        "volume-title": "Proc. Int. Conf. Learn. Representations",
+        "author": "Clark",
+        "year": "2020",
+        "title": "Pre-training text encoders as discriminators rather than generators"
+      },
+      {
+        "key": "ref18",
+        "doi-asserted-by": "publisher",
+        "doi": "10.1162/tacl_a_00300",
+        "id": "81f5810fbbab9b7203b9556f4ce3c741875407bc",
+        "title": "SpanBERT: Improving Pre-training by Representing and Predicting Spans",
+        "year": 2019,
+        "abstract": "We present SpanBERT, a pre-training method that is designed to better represent and predict spans of text. Our approach extends BERT by (1) masking contiguous random spans, rather than random tokens, and (2) training the span boundary representations to predict the entire content of the masked span, without relying on the individual token representations within it. SpanBERT consistently outperforms BERT and our better-tuned baselines, with substantial gains on span selection tasks such as question answering and coreference resolution. In particular, with the same training data and model size as BERTlarge, our single model obtains 94.6% and 88.7% F1 on SQuAD 1.1 and 2.0 respectively. We also achieve a new state of the art on the OntoNotes coreference resolution task (79.6% F1), strong performance on the TACRED relation extraction benchmark, and even gains on GLUE.1"
+      },
+      {
+        "key": "ref22",
+        "doi-asserted-by": "publisher",
+        "doi": "10.18653/v1/2022.acl-long.581",
+        "id": "2c871df72c52b58f05447fcb3afc838168d94505",
+        "title": "Knowledge Neurons in Pretrained Transformers",
+        "year": 2021,
+        "abstract": "Large-scale pretrained language models are surprisingly good at recalling factual knowledge presented in the training corpus. In this paper, we present preliminary studies on how factual knowledge is stored in pretrained Transformers by introducing the concept of knowledge neurons. Specifically, we examine the fill-in-the-blank cloze task for BERT. Given a relational fact, we propose a knowledge attribution method to identify the neurons that express the fact. We find that the activation of such knowledge neurons is positively correlated to the expression of their corresponding facts. In our case studies, we attempt to leverage knowledge neurons to edit (such as update, and erase) specific factual knowledge without fine-tuning. Our results shed light on understanding the storage of knowledge within pretrained Transformers."
+      },
+      {
+        "key": "ref28",
+        "volume-title": "Proc. Int. Conf. Learn. Representations",
+        "author": "Karthikeyan",
+        "year": "2020",
+        "title": "Cross-lingual ability of multilingual BERT: An empirical study"
+      },
+      {
+        "key": "ref29",
+        "doi-asserted-by": "publisher",
+        "doi": "10.18653/v1/2021.naacl-main.41"
+      },
+      {
+        "key": "ref32",
+        "volume-title": "Proc. Int. Conf. Learn. Representations",
+        "author": "Wei",
+        "year": "2021",
+        "title": "On learning universal representations across languages"
+      },
+      {
+        "key": "ref34",
+        "doi-asserted-by": "publisher",
+        "doi": "10.1609/aaai.v34i05.6480"
+      },
+      {
+        "key": "ref38",
+        "doi-asserted-by": "publisher",
+        "doi": "10.18653/v1/2021.acl-long.265",
+        "id": "5539127e3907a492d97181c9e62e43f91d7cf19e",
+        "title": "Improving Pretrained Cross-Lingual Language Models via Self-Labeled Word Alignment",
+        "year": 2021,
+        "abstract": "The cross-lingual language models are typically pretrained with masked language modeling on multilingual text or parallel sentences. In this paper, we introduce denoising word alignment as a new cross-lingual pre-training task. Specifically, the model first self-label word alignments for parallel sentences. Then we randomly mask tokens in a bitext pair. Given a masked token, the model uses a pointer network to predict the aligned token in the other language. We alternately perform the above two steps in an expectation-maximization manner. Experimental results show that our method improves cross-lingual transferability on various datasets, especially on the token-level tasks, such as question answering, and structured prediction. Moreover, the model can serve as a pretrained word aligner, which achieves reasonably low error rate on the alignment benchmarks. The code and pretrained parameters are available at github.com/CZWin32768/XLM-Align."
+      },
+      {
+        "key": "ref46",
+        "doi-asserted-by": "publisher",
+        "doi": "10.18653/v1/2020.acl-main.421",
+        "id": "9e9d919c1de684ca42c8b581ec62c7aa685f431e",
+        "title": "On the Cross-lingual Transferability of Monolingual Representations",
+        "year": 2019,
+        "abstract": "State-of-the-art unsupervised multilingual models (e.g., multilingual BERT) have been shown to generalize in a zero-shot cross-lingual setting. This generalization ability has been attributed to the use of a shared subword vocabulary and joint training across multiple languages giving rise to deep multilingual abstractions. We evaluate this hypothesis by designing an alternative approach that transfers a monolingual model to new languages at the lexical level. More concretely, we first train a transformer-based masked language model on one language, and transfer it to a new language by learning a new embedding matrix with the same masked language modeling objective, freezing parameters of all other layers. This approach does not rely on a shared vocabulary or joint training. However, we show that it is competitive with multilingual BERT on standard cross-lingual classification benchmarks and on a new Cross-lingual Question Answering Dataset (XQuAD). Our results contradict common beliefs of the basis of the generalization ability of multilingual models and suggest that deep monolingual models learn some abstractions that generalize across languages. We also release XQuAD as a more comprehensive cross-lingual benchmark, which comprises 240 paragraphs and 1190 question-answer pairs from SQuAD v1.1 translated into ten languages by professional translators."
+      },
+      {
+        "key": "ref59",
+        "author": "Zeman",
+        "year": "2019",
+        "title": "Universal dependencies 2.5"
+      },
+      {
+        "key": "ref60",
+        "doi-asserted-by": "publisher",
+        "doi": "10.18653/v1/P17-1178",
+        "id": "616253f6b1e83ede361457de2f51b0bf70555b13",
+        "title": "Cross-lingual Name Tagging and Linking for 282 Languages",
+        "year": 2017,
+        "abstract": "The ambitious goal of this work is to develop a cross-lingual name tagging and linking framework for 282 languages that exist in Wikipedia. Given a document in any of these languages, our framework is able to identify name mentions, assign a coarse-grained or fine-grained type to each mention, and link it to an English Knowledge Base (KB) if it is linkable. We achieve this goal by performing a series of new KB mining methods: generating “silver-standard” annotations by transferring annotations from English to other languages through cross-lingual links and KB properties, refining annotations through self-training and topic selection, deriving language-specific morphology features from anchor links, and mining word translation pairs from cross-lingual links. Both name tagging and linking results for 282 languages are promising on Wikipedia data and on-Wikipedia data."
+      }
+    ]
+  },
+  {
+    "id": "cc7310f7cf2729719949a6bc56831fedea8ffa33",
+    "title": "LLM Augmented LLMs: Expanding Capabilities through Composition",
+    "year": 2024,
+    "abstract": "Foundational models with billions of parameters which have been trained on large corpora of data have demonstrated non-trivial skills in a variety of domains. However, due to their monolithic structure, it is challenging and expensive to augment them or impart new skills. On the other hand, due to their adaptation abilities, several new instances of these models are being trained towards new domains and tasks. In this work, we study the problem of efficient and practical composition of existing foundation models with more specific models to enable newer capabilities. To this end, we propose CALM -- Composition to Augment Language Models -- which introduces cross-attention between models to compose their representations and enable new capabilities. Salient features of CALM are: (i) Scales up LLMs on new tasks by 're-using' existing LLMs along with a few additional parameters and data, (ii) Existing model weights are kept intact, and hence preserves existing capabilities, and (iii) Applies to diverse domains and settings. We illustrate that augmenting PaLM2-S with a smaller model trained on low-resource languages results in an absolute improvement of up to 13\\% on tasks like translation into English and arithmetic reasoning for low-resource languages. Similarly, when PaLM2-S is augmented with a code-specific model, we see a relative improvement of 40\\% over the base model for code generation and explanation tasks -- on-par with fully fine-tuned counterparts.",
+    "doi": "10.48550/arXiv.2401.02412",
+    "references": [
+      {
+        "id": "7a816dd242c4c3f652a448dba54daa53f89a9e4f",
+        "title": "Soft Merging of Experts with Adaptive Routing",
+        "year": 2023,
+        "abstract": "Sparsely activated neural networks with conditional computation learn to route their inputs through different\"expert\"subnetworks, providing a form of modularity that densely activated models lack. Despite their possible benefits, models with learned routing often underperform their parameter-matched densely activated counterparts as well as models that use non-learned heuristic routing strategies. In this paper, we hypothesize that these shortcomings stem from the gradient estimation techniques used to train sparsely activated models that use non-differentiable discrete routing decisions. To address this issue, we introduce Soft Merging of Experts with Adaptive Routing (SMEAR), which avoids discrete routing by using a single\"merged\"expert constructed via a weighted average of all of the experts' parameters. By routing activations through a single merged expert, SMEAR does not incur a significant increase in computational costs and enables standard gradient-based training. We empirically validate that models using SMEAR outperform models that route based on metadata or learn sparse routing through gradient estimation. Furthermore, we provide qualitative analysis demonstrating that the experts learned via SMEAR exhibit a significant amount of specialization. All of the code used in our experiments is publicly available.",
+        "doi": "10.48550/arXiv.2306.03745"
+      },
+      {
+        "id": "7ed0faa6720cd176d57badbc0455af31a03f080c",
+        "title": "Towards Expert-Level Medical Question Answering with Large Language Models",
+        "year": 2023,
+        "abstract": "Recent artificial intelligence (AI) systems have reached milestones in\"grand challenges\"ranging from Go to protein-folding. The capability to retrieve medical knowledge, reason over it, and answer medical questions comparably to physicians has long been viewed as one such grand challenge. Large language models (LLMs) have catalyzed significant progress in medical question answering; Med-PaLM was the first model to exceed a\"passing\"score in US Medical Licensing Examination (USMLE) style questions with a score of 67.2% on the MedQA dataset. However, this and other prior work suggested significant room for improvement, especially when models' answers were compared to clinicians' answers. Here we present Med-PaLM 2, which bridges these gaps by leveraging a combination of base LLM improvements (PaLM 2), medical domain finetuning, and prompting strategies including a novel ensemble refinement approach. Med-PaLM 2 scored up to 86.5% on the MedQA dataset, improving upon Med-PaLM by over 19% and setting a new state-of-the-art. We also observed performance approaching or exceeding state-of-the-art across MedMCQA, PubMedQA, and MMLU clinical topics datasets. We performed detailed human evaluations on long-form questions along multiple axes relevant to clinical applications. In pairwise comparative ranking of 1066 consumer medical questions, physicians preferred Med-PaLM 2 answers to those produced by physicians on eight of nine axes pertaining to clinical utility (p<0.001). We also observed significant improvements compared to Med-PaLM on every evaluation axis (p<0.001) on newly introduced datasets of 240 long-form\"adversarial\"questions to probe LLM limitations. While further studies are necessary to validate the efficacy of these models in real-world settings, these results highlight rapid progress towards physician-level performance in medical question answering.",
+        "doi": "10.48550/arXiv.2305.09617"
+      },
+      {
+        "id": "574beee702be3856d60aa482ec725168fe64fc99",
+        "title": "Sparks of Artificial General Intelligence: Early experiments with GPT-4",
+        "year": 2023,
+        "abstract": "Artificial intelligence (AI) researchers have been developing and refining large language models (LLMs) that exhibit remarkable capabilities across a variety of domains and tasks, challenging our understanding of learning and cognition. The latest model developed by OpenAI, GPT-4, was trained using an unprecedented scale of compute and data. In this paper, we report on our investigation of an early version of GPT-4, when it was still in active development by OpenAI. We contend that (this early version of) GPT-4 is part of a new cohort of LLMs (along with ChatGPT and Google's PaLM for example) that exhibit more general intelligence than previous AI models. We discuss the rising capabilities and implications of these models. We demonstrate that, beyond its mastery of language, GPT-4 can solve novel and difficult tasks that span mathematics, coding, vision, medicine, law, psychology and more, without needing any special prompting. Moreover, in all of these tasks, GPT-4's performance is strikingly close to human-level performance, and often vastly surpasses prior models such as ChatGPT. Given the breadth and depth of GPT-4's capabilities, we believe that it could reasonably be viewed as an early (yet still incomplete) version of an artificial general intelligence (AGI) system. In our exploration of GPT-4, we put special emphasis on discovering its limitations, and we discuss the challenges ahead for advancing towards deeper and more comprehensive versions of AGI, including the possible need for pursuing a new paradigm that moves beyond next-word prediction. We conclude with reflections on societal influences of the recent technological leap and future research directions.",
+        "doi": "10.48550/arXiv.2303.12712"
+      },
+      {
+        "id": "53d128ea815bcc0526856eb5a9c42cc977cb36a7",
+        "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+        "year": 2023,
+        "abstract": "Language models (LMs) exhibit remarkable abilities to solve new tasks from just a few examples or textual instructions, especially at scale. They also, paradoxically, struggle with basic functionality, such as arithmetic or factual lookup, where much simpler and smaller models excel. In this paper, we show that LMs can teach themselves to use external tools via simple APIs and achieve the best of both worlds. We introduce Toolformer, a model trained to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction. This is done in a self-supervised way, requiring nothing more than a handful of demonstrations for each API. We incorporate a range of tools, including a calculator, a Q\\&A system, two different search engines, a translation system, and a calendar. Toolformer achieves substantially improved zero-shot performance across a variety of downstream tasks, often competitive with much larger models, without sacrificing its core language modeling abilities.",
+        "doi": "10.48550/arXiv.2302.04761"
+      },
+      {
+        "id": "71ba5f845bd22d42003675b7cea970ca9e590bcc",
+        "title": "Editing Models with Task Arithmetic",
+        "year": 2022,
+        "abstract": "Changing how pre-trained models behave -- e.g., improving their performance on a downstream task or mitigating biases learned during pre-training -- is a common practice when developing machine learning systems. In this work, we propose a new paradigm for steering the behavior of neural networks, centered around \\textit{task vectors}. A task vector specifies a direction in the weight space of a pre-trained model, such that movement in that direction improves performance on the task. We build task vectors by subtracting the weights of a pre-trained model from the weights of the same model after fine-tuning on a task. We show that these task vectors can be modified and combined together through arithmetic operations such as negation and addition, and the behavior of the resulting model is steered accordingly. Negating a task vector decreases performance on the target task, with little change in model behavior on control tasks. Moreover, adding task vectors together can improve performance on multiple tasks at once. Finally, when tasks are linked by an analogy relationship of the form ``A is to B as C is to D\", combining task vectors from three of the tasks can improve performance on the fourth, even when no data from the fourth task is used for training. Overall, our experiments with several models, modalities and tasks show that task arithmetic is a simple, efficient and effective way of editing models.",
+        "doi": "10.48550/arXiv.2212.04089"
+      },
+      {
+        "id": "62f0db3a5ad5c795ec18fc7a6e7b01836809df57",
+        "title": "Language Models are Multilingual Chain-of-Thought Reasoners",
+        "year": 2022,
+        "abstract": "We evaluate the reasoning abilities of large language models in multilingual settings. We introduce the Multilingual Grade School Math (MGSM) benchmark, by manually translating 250 grade-school math problems from the GSM8K dataset (Cobbe et al., 2021) into ten typologically diverse languages. We find that the ability to solve MGSM problems via chain-of-thought prompting emerges with increasing model scale, and that models have strikingly strong multilingual reasoning abilities, even in underrepresented languages such as Bengali and Swahili. Finally, we show that the multilingual reasoning abilities of language models extend to other tasks such as commonsense reasoning and word-in-context semantic judgment. The MGSM benchmark is publicly available at https://github.com/google-research/url-nlp.",
+        "doi": "10.48550/arXiv.2210.03057"
+      },
+      {
+        "id": "0e638ce20f3e9b4dd1c10c32a29495c798425e63",
+        "title": "No Language Left Behind: Scaling Human-Centered Machine Translation",
+        "year": 2022,
+        "abstract": "Driven by the goal of eradicating language barriers on a global scale, machine translation has solidified itself as a key focus of artificial intelligence research today. However, such efforts have coalesced around a small subset of languages, leaving behind the vast majority of mostly low-resource languages. What does it take to break the 200 language barrier while ensuring safe, high quality results, all while keeping ethical considerations in mind? In No Language Left Behind, we took on this challenge by first contextualizing the need for low-resource language translation support through exploratory interviews with native speakers. Then, we created datasets and models aimed at narrowing the performance gap between low and high-resource languages. More specifically, we developed a conditional compute model based on Sparsely Gated Mixture of Experts that is trained on data obtained with novel and effective data mining techniques tailored for low-resource languages. We propose multiple architectural and training improvements to counteract overfitting while training on thousands of tasks. Critically, we evaluated the performance of over 40,000 different translation directions using a human-translated benchmark, Flores-200, and combined human evaluation with a novel toxicity benchmark covering all languages in Flores-200 to assess translation safety. Our model achieves an improvement of 44% BLEU relative to the previous state-of-the-art, laying important groundwork towards realizing a universal translation system. Finally, we open source all contributions described in this work, accessible at https://github.com/facebookresearch/fairseq/tree/nllb.",
+        "doi": "10.48550/arXiv.2207.04672"
+      },
+      {
+        "id": "ab0e3d3e4d42369de5933a3b4c237780b41c0d77",
+        "title": "Solving Quantitative Reasoning Problems with Language Models",
+        "year": 2022,
+        "abstract": "Language models have achieved remarkable performance on a wide range of tasks that require natural language understanding. Nevertheless, state-of-the-art models have generally struggled with tasks that require quantitative reasoning, such as solving mathematics, science, and engineering problems at the college level. To help close this gap, we introduce Minerva, a large language model pretrained on general natural language data and further trained on technical content. The model achieves state-of-the-art performance on technical benchmarks without the use of external tools. We also evaluate our model on over two hundred undergraduate-level problems in physics, biology, chemistry, economics, and other sciences that require quantitative reasoning, and find that the model can correctly answer nearly a third of them.",
+        "doi": "10.48550/arXiv.2206.14858"
+      },
+      {
+        "id": "ada81a4de88a6ce474df2e2446ad11fea480616e",
+        "title": "Socratic Models: Composing Zero-Shot Multimodal Reasoning with Language",
+        "year": 2022,
+        "abstract": "Large pretrained (e.g.,\"foundation\") models exhibit distinct capabilities depending on the domain of data they are trained on. While these domains are generic, they may only barely overlap. For example, visual-language models (VLMs) are trained on Internet-scale image captions, but large language models (LMs) are further trained on Internet-scale text with no images (e.g., spreadsheets, SAT questions, code). As a result, these models store different forms of commonsense knowledge across different domains. In this work, we show that this diversity is symbiotic, and can be leveraged through Socratic Models (SMs): a modular framework in which multiple pretrained models may be composed zero-shot i.e., via multimodal-informed prompting, to exchange information with each other and capture new multimodal capabilities, without requiring finetuning. With minimal engineering, SMs are not only competitive with state-of-the-art zero-shot image captioning and video-to-text retrieval, but also enable new applications such as (i) answering free-form questions about egocentric video, (ii) engaging in multimodal assistive dialogue with people (e.g., for cooking recipes) by interfacing with external APIs and databases (e.g., web search), and (iii) robot perception and planning.",
+        "doi": "10.48550/arXiv.2204.00598"
+      },
+      {
+        "id": "54020e5fe48ebb250f27d744e20a63cac2988a84",
+        "title": "Model soups: averaging weights of multiple fine-tuned models improves accuracy without increasing inference time",
+        "year": 2022,
+        "abstract": "The conventional recipe for maximizing model accuracy is to (1) train multiple models with various hyperparameters and (2) pick the individual model which performs best on a held-out validation set, discarding the remainder. In this paper, we revisit the second step of this procedure in the context of fine-tuning large pre-trained models, where fine-tuned models often appear to lie in a single low error basin. We show that averaging the weights of multiple models fine-tuned with different hyperparameter configurations often improves accuracy and robustness. Unlike a conventional ensemble, we may average many models without incurring any additional inference or memory costs -- we call the results\"model soups.\"When fine-tuning large pre-trained models such as CLIP, ALIGN, and a ViT-G pre-trained on JFT, our soup recipe provides significant improvements over the best model in a hyperparameter sweep on ImageNet. The resulting ViT-G model, which attains 90.94% top-1 accuracy on ImageNet, achieved a new state of the art. Furthermore, we show that the model soup approach extends to multiple image classification and natural language processing tasks, improves out-of-distribution performance, and improves zero-shot performance on new downstream tasks. Finally, we analytically relate the performance similarity of weight-averaging and logit-ensembling to flatness of the loss and confidence of the predictions, and validate this relation empirically. Code is available at https://github.com/mlfoundations/model-soups.",
+        "doi": "10.48550/arXiv.2203.05482"
+      },
+      {
+        "id": "7eea197a9317e512b3c6d73aaef7e2b62e1aacd8",
+        "title": "Towards the Next 1000 Languages in Multilingual Machine Translation: Exploring the Synergy Between Supervised and Self-Supervised Learning",
+        "year": 2022,
+        "abstract": "Achieving universal translation between all human language pairs is the holy-grail of machine translation (MT) research. While recent progress in massively multilingual MT is one step closer to reaching this goal, it is becoming evident that extending a multilingual MT system simply by training on more parallel data is unscalable, since the availability of labeled data for low-resource and non-English-centric language pairs is forbiddingly limited. To this end, we present a pragmatic approach towards building a multilingual MT model that covers hundreds of languages, using a mixture of supervised and self-supervised objectives, depending on the data availability for different language pairs. We demonstrate that the synergy between these two training paradigms enables the model to produce high-quality translations in the zero-resource setting, even surpassing supervised translation quality for low- and mid-resource languages. We conduct a wide array of experiments to understand the effect of the degree of multilingual supervision, domain mismatches and amounts of parallel and monolingual data on the quality of our self-supervised multilingual models. To demonstrate the scalability of the approach, we train models with over 200 languages and demonstrate high performance on zero-resource translation on several previously under-studied languages. We hope our findings will serve as a stepping stone towards enabling translation for the next thousand languages."
+      },
+      {
+        "id": "06b20a1c6883464fcb2855adc146874fe7937c41",
+        "title": "Merging Models with Fisher-Weighted Averaging",
+        "year": 2021,
+        "abstract": "Averaging the parameters of models that have the same architecture and initialization can provide a means of combining their respective capabilities. In this paper, we take the perspective that this\"merging\"operation can be seen as choosing parameters that approximately maximize the joint likelihood of the posteriors of the models' parameters. Computing a simple average of the models' parameters therefore corresponds to making an isotropic Gaussian approximation to their posteriors. We develop an alternative merging procedure based on the Laplace approximation where we approximate each model's posterior as a Gaussian distribution whose precision matrix corresponds to its Fisher information. We first show that our\"Fisher merging\"technique provides a performance boost in settings where simple parameter averaging is currently used -- specifically, robust fine-tuning and model ensembling. Then, we compare merging to standard gradient-based transfer learning and demonstrate that merging enables a fundamentally different method for transferring capabilities across models. Specifically, we show that Fisher merging is competitive with gradient-based transfer learning approaches (while being significantly cheaper) in intermediate-task training and domain-adaptive pre-training. We also show that our merging procedure makes it possible to combine models in previously unexplored ways. We release our code to facilitate future research into methods for merging models."
+      },
+      {
+        "id": "d6045d2ccc9c09ca1671348de86d07da6bc28eea",
+        "title": "Training Verifiers to Solve Math Word Problems",
+        "year": 2021,
+        "abstract": "State-of-the-art language models can match human performance on many tasks, but they still struggle to robustly perform multi-step mathematical reasoning. To diagnose the failures of current models and support research, we introduce GSM8K, a dataset of 8.5K high quality linguistically diverse grade school math word problems. We find that even the largest transformer models fail to achieve high test performance, despite the conceptual simplicity of this problem distribution. To increase performance, we propose training verifiers to judge the correctness of model completions. At test time, we generate many candidate solutions and select the one ranked highest by the verifier. We demonstrate that verification significantly improves performance on GSM8K, and we provide strong empirical evidence that verification scales more effectively with increased data than a finetuning baseline."
+      },
+      {
+        "id": "a38e0f993e4805ba8a9beae4c275c91ffcec01df",
+        "title": "Program Synthesis with Large Language Models",
+        "year": 2021,
+        "abstract": "This paper explores the limits of the current generation of large language models for program synthesis in general purpose programming languages. We evaluate a collection of such models (with between 244M and 137B parameters) on two new benchmarks, MBPP and MathQA-Python, in both the few-shot and fine-tuning regimes. Our benchmarks are designed to measure the ability of these models to synthesize short Python programs from natural language descriptions. The Mostly Basic Programming Problems (MBPP) dataset contains 974 programming tasks, designed to be solvable by entry-level programmers. The MathQA-Python dataset, a Python version of the MathQA benchmark, contains 23914 problems that evaluate the ability of the models to synthesize code from more complex text. On both datasets, we find that synthesis performance scales log-linearly with model size. Our largest models, even without finetuning on a code dataset, can synthesize solutions to 59.6 percent of the problems from MBPP using few-shot learning with a well-designed prompt. Fine-tuning on a held-out portion of the dataset improves performance by about 10 percentage points across most model sizes. On the MathQA-Python dataset, the largest fine-tuned model achieves 83.8 percent accuracy. Going further, we study the model's ability to engage in dialog about code, incorporating human feedback to improve its solutions. We find that natural language feedback from a human halves the error rate compared to the model's initial prediction. Additionally, we conduct an error analysis to shed light on where these models fall short and what types of programs are most difficult to generate. Finally, we explore the semantic grounding of these models by fine-tuning them to predict the results of program execution. We find that even our best models are generally unable to predict the output of a program given a specific input."
+      },
+      {
+        "id": "352d02125c5c1ea4adfbd29edc4fb827c9f24709",
+        "title": "An Adapter Based Pre-Training for Efficient and Scalable Self-Supervised Speech Representation Learning",
+        "year": 2021,
+        "abstract": "We present a method for transferring pre-trained self-supervised (SSL) speech representations to multiple languages. There is an abundance of unannotated speech, so creating self-supervised representations from raw audio and fine-tuning on small annotated datasets is a promising direction to build speech recognition systems. SSL models generally perform SSL on raw audio in a pre-training phase and then fine-tune on a small fraction of annotated data. Such models have produced state of the art results for ASR. However, these models are very expensive to pre-train. We use an existing wav2vec 2.0 model and tackle the problem of learning new language representations while utilizing existing model knowledge. Crucially we do so without catastrophic forgetting of the existing language representation. We use adapter modules to speed up pre-training a new language task. Our model can decrease pre-training times by 32% when learning a new language task, and learn this new audio-language representation without forgetting previous language representation. We evaluate by applying these language representations to automatic speech recognition.",
+        "doi": "10.1109/icassp43922.2022.9747374"
+      },
+      {
+        "id": "acbdbf49f9bc3f151b93d9ca9a06009f4f6eb269",
+        "title": "Evaluating Large Language Models Trained on Code",
+        "year": 2021,
+        "abstract": "We introduce Codex, a GPT language model fine-tuned on publicly available code from GitHub, and study its Python code-writing capabilities. A distinct production version of Codex powers GitHub Copilot. On HumanEval, a new evaluation set we release to measure functional correctness for synthesizing programs from docstrings, our model solves 28.8% of the problems, while GPT-3 solves 0% and GPT-J solves 11.4%. Furthermore, we find that repeated sampling from the model is a surprisingly effective strategy for producing working solutions to difficult prompts. Using this method, we solve 70.2% of our problems with 100 samples per problem. Careful investigation of our model reveals its limitations, including difficulty with docstrings describing long chains of operations and with binding operations to variables. Finally, we discuss the potential broader impacts of deploying powerful code generation technologies, covering safety, security, and economics."
+      },
+      {
+        "id": "69a72ff5b30642d11c96635e99aadad3140d33a7",
+        "title": "CodeXGLUE: A Machine Learning Benchmark Dataset for Code Understanding and Generation",
+        "year": 2021,
+        "abstract": "Benchmark datasets have a significant impact on accelerating research in programming language tasks. In this paper, we introduce CodeXGLUE, a benchmark dataset to foster machine learning research for program understanding and generation. CodeXGLUE includes a collection of 10 tasks across 14 datasets and a platform for model evaluation and comparison. CodeXGLUE also features three baseline systems, including the BERT-style, GPT-style, and Encoder-Decoder models, to make it easy for researchers to use the platform. The availability of such data and baselines can help the development and validation of new methods that can be applied to various program understanding and generation problems."
+      },
+      {
+        "id": "09bf4d005cb334e38bc28c5ad2d4f21d3a1d13cc",
+        "title": "Language ID in the Wild: Unexpected Challenges on the Path to a Thousand-Language Web Text Corpus",
+        "year": 2020,
+        "abstract": "Large text corpora are increasingly important for a wide variety of Natural Language Processing (NLP) tasks, and automatic language identification (LangID) is a core technology needed to collect such datasets in a multilingual context. LangID is largely treated as solved in the literature, with models reported that achieve over 90% average F1 on as many as 1,366 languages. We train LangID models on up to 1,629 languages with comparable quality on held-out test sets, but find that human-judged LangID accuracy for web-crawl text corpora created using these models is only around 5% for many lower-resource languages, suggesting a need for more robust evaluation. Further analysis revealed a variety of error modes, arising from domain mismatch, class imbalance, language similarity, and insufficiently expressive models. We propose two classes of techniques to mitigate these errors: wordlist-based tunable-precision filters (for which we release curated lists in about 500 languages) and transformer-based semi-supervised LangID models, which increase median dataset precision from 5.5% to 71.2%. These techniques enable us to create an initial data set covering 100K or more relatively clean sentences in each of 500+ languages, paving the way towards a 1,000-language web text corpus.",
+        "doi": "10.18653/V1/2020.COLING-MAIN.579"
+      },
+      {
+        "id": "21db684d6b7bfd13538e78cb2fecab1b5e91e0e7",
+        "title": "Harnessing Multilinguality in Unsupervised Machine Translation for Rare Languages",
+        "year": 2020,
+        "abstract": "Unsupervised translation has reached impressive performance on resource-rich language pairs such as English-French and English-German. However, early studies have shown that in more realistic settings involving low-resource, rare languages, unsupervised translation performs poorly, achieving less than 3.0 BLEU. In this work, we show that multilinguality is critical to making unsupervised systems practical for low-resource settings. In particular, we present a single model for 5 low-resource languages (Gujarati, Kazakh, Nepali, Sinhala, and Turkish) to and from English directions, which leverages monolingual and auxiliary parallel data from other high-resource language pairs via a three-stage training scheme. We outperform all current state-of-the-art unsupervised baselines for these languages, achieving gains of up to 14.4 BLEU. Additionally, we outperform strong supervised baselines for various language pairs as well as match the performance of the current state-of-the-art supervised model for Nepali-English. We conduct a series of ablation studies to establish the robustness of our model under different degrees of data quality, as well as to analyze the factors which led to the superior performance of the proposed approach over traditional unsupervised models.",
+        "doi": "10.18653/V1/2021.NAACL-MAIN.89"
+      },
+      {
+        "id": "98ef0db84e62aef969629264c9de1f4d0013f3b9",
+        "title": "AdapterFusion: Non-Destructive Task Composition for Transfer Learning",
+        "year": 2020,
+        "abstract": "Sequential fine-tuning and multi-task learning are methods aiming to incorporate knowledge from multiple tasks; however, they suffer from catastrophic forgetting and difficulties in dataset balancing. To address these shortcomings, we propose AdapterFusion, a new two stage learning algorithm that leverages knowledge from multiple tasks. First, in the knowledge extraction stage we learn task specific parameters called adapters, that encapsulate the task-specific information. We then combine the adapters in a separate knowledge composition step. We show that by separating the two stages, i.e., knowledge extraction and knowledge composition, the classifier can effectively exploit the representations learned from multiple tasks in a non-destructive manner. We empirically evaluate AdapterFusion on 16 diverse NLU tasks, and find that it effectively combines various types of knowledge at different layers of the model. We show that our approach outperforms traditional strategies such as full fine-tuning as well as multi-task learning. Our code and adapters are available at AdapterHub.ml.",
+        "doi": "10.18653/v1/2021.eacl-main.39"
+      },
+      {
+        "id": "4f03e69963b9649950ba29ae864a0de8c14f1f86",
+        "title": "K-Adapter: Infusing Knowledge into Pre-Trained Models with Adapters",
+        "year": 2020,
+        "abstract": "We study the problem of injecting knowledge into large pre-trained models like BERT and RoBERTa. Existing methods typically update the original parameters of pre-trained models when injecting knowledge. However, when multiple kinds of knowledge are injected, they may suffer from catastrophic forgetting. To address this, we propose K-Adapter, which remains the original parameters of the pre-trained model fixed and supports continual knowledge infusion. Taking RoBERTa as the pre-trained model, K-Adapter has a neural adapter for each kind of infused knowledge, like a plug-in connected to RoBERTa. There is no information flow between different adapters, thus different adapters are efficiently trained in a distributed way. We inject two kinds of knowledge, including factual knowledge obtained from automatically aligned text-triplets on Wikipedia and Wikidata, and linguistic knowledge obtained from dependency parsing. Results on three knowledge-driven tasks (total six datasets) including relation classification, entity typing and question answering demonstrate that each adapter improves the performance, and the combination of both adapters brings further improvements. Probing experiments further indicate that K-Adapter captures richer factual and commonsense knowledge than RoBERTa.",
+        "doi": "10.18653/v1/2021.findings-acl.121"
+      },
+      {
+        "id": "6c4b76232bb72897685d19b3d264c6ee3005bc2b",
+        "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+        "year": 2019,
+        "abstract": "Transfer learning, where a model is first pre-trained on a data-rich task before being fine-tuned on a downstream task, has emerged as a powerful technique in natural language processing (NLP). The effectiveness of transfer learning has given rise to a diversity of approaches, methodology, and practice. In this paper, we explore the landscape of transfer learning techniques for NLP by introducing a unified framework that converts every language problem into a text-to-text format. Our systematic study compares pre-training objectives, architectures, unlabeled datasets, transfer approaches, and other factors on dozens of language understanding tasks. By combining the insights from our exploration with scale and our new \"Colossal Clean Crawled Corpus\", we achieve state-of-the-art results on many benchmarks covering summarization, question answering, text classification, and more. To facilitate future work on transfer learning for NLP, we release our dataset, pre-trained models, and code."
+      },
+      {
+        "id": "4ff879c4dc26819585eeec734dc4d4a8083ca08d",
+        "title": "SNR: Sub-Network Routing for Flexible Parameter Sharing in Multi-Task Learning",
+        "year": 2019,
+        "abstract": "Machine learning applications, such as object detection and content recommendation, often require training a single model to predict multiple targets at the same time. Multi-task learning through neural networks became popular recently, because it not only helps improve the accuracy of many prediction tasks when they are related, but also saves computation cost by sharing model architectures and low-level representations. The latter is critical for real-time large-scale machine learning systems. \nHowever, classic multi-task neural networks may degenerate significantly in accuracy when tasks are less related. Previous works (Misra et al. 2016; Yang and Hospedales 2016; Ma et al. 2018) showed that having more flexible architectures in multi-task models, either manually-tuned or softparameter-sharing structures like gating networks, helps improve the prediction accuracy. However, manual tuning is not scalable, and the previous soft-parameter sharing models are either not flexible enough or computationally expensive. \nIn this work, we propose a novel framework called SubNetwork Routing (SNR) to achieve more flexible parameter sharing while maintaining the computational advantage of the classic multi-task neural-network model. SNR modularizes the shared low-level hidden layers into multiple layers of subnetworks, and controls the connection of sub-networks with learnable latent variables to achieve flexible parameter sharing. We demonstrate the effectiveness of our approach on a large-scale dataset YouTube8M. We show that the proposed method improves the accuracy of multi-task models while maintaining their computation efficiency.",
+        "doi": "10.1609/AAAI.V33I01.3301216"
+      },
+      {
+        "id": "29ddc1f43f28af7c846515e32cc167bc66886d0c",
+        "title": "Parameter-Efficient Transfer Learning for NLP",
+        "year": 2019,
+        "abstract": "Fine-tuning large pre-trained models is an effective transfer mechanism in NLP. However, in the presence of many downstream tasks, fine-tuning is parameter inefficient: an entire new model is required for every task. As an alternative, we propose transfer with adapter modules. Adapter modules yield a compact and extensible model; they add only a few trainable parameters per task, and new tasks can be added without revisiting previous ones. The parameters of the original network remain fixed, yielding a high degree of parameter sharing. To demonstrate adapter's effectiveness, we transfer the recently proposed BERT Transformer model to 26 diverse text classification tasks, including the GLUE benchmark. Adapters attain near state-of-the-art performance, whilst adding only a few parameters per task. On GLUE, we attain within 0.4% of the performance of full fine-tuning, adding only 3.6% parameters per task. By contrast, fine-tuning trains 100% of the parameters per task."
+      },
+      {
+        "id": "204e3073870fae3d05bcbc2f6a8e263d9b72e776",
+        "title": "Attention is All you Need",
+        "year": 2017,
+        "abstract": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data."
+      },
+      {
+        "id": null,
+        "title": "Hug-gingGPT: Solving AI Tasks with ChatGPT and its Friends in HuggingFace",
+        "year": null,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "Resolving interference when merging models",
+        "year": null,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": ": Building Modular Encoder-Decoder Models",
+        "year": null,
+        "abstract": null
+      }
+    ]
+  },
+  {
+    "id": "2bfe6bc538d2bcf6e8eec75f6444143f54bf1457",
+    "title": "An integrated corpus-based text mining approach used to process military technical information for facilitating EFL troopers’ linguistic comprehension: US anti-tank missile systems field manual as an example",
+    "year": 2021,
+    "abstract": ": Military knowledge is an uncommon research field and is often classified as confidential information. Furthermore, when US military knowledge is adopted by English as a foreign language (EFL) countries, properly interpreting military texts brings about challenges. Taking Asian militaries as examples of EFL countries, not every trooper has sufficient English proficiency and capability to read and comprehend complicated military knowledge databases. In addition, under limited training time and lack of suitable reference materials, it is difficult to popularise and improve the efficiency of the courses that study US field manuals (FMs), which are important books that introduce US military combat tactics and strategies, military operation procedures, weapon systems, and others. Nevertheless, in many EFL countries, English learning is integrated into the education system to promote internationalisation and enhance global competitiveness. Thus, the English proficiency of nationals in most EFL countries is not negligible. Based on these considerations, this paper discusses the integration of the corpus software and cooperation of linguists and military experts to conduct syntax analysis and taxonomy of military terminology to enable EFL troopers with non-excellent English proficiency to understand the intricate US military domain knowledge and develop the military corpus as an auxiliary language training material. The US Army FMs of anti-tank missile systems are adopted as an empirical example to illustrate the proposed approach. Analytical findings will become critical reference indicators for defence language institutes (DLI) of EFL militaries in developing military English training materials and for processing military information.",
+    "doi": "10.4038/jnsfsr.v49i3.10146",
+    "references": [
+      {
+        "id": "21066a0d9375eb8c5e30d1c1d633740f0b1ac7e8",
+        "title": "A Novel Statistic-Based Corpus Machine Processing Approach to Refine a Big Textual Data: An ESP Case of COVID-19 News Reports",
+        "year": 2020,
+        "abstract": "With developments of modern and advanced information and communication technologies (ICTs), Industry 4.0 has launched big data analysis, natural language processing (NLP), and artificial intelligence (AI). Corpus analysis is also a part of big data analysis. For many cases of statistic-based corpus techniques adopted to analyze English for specific purposes (ESP), researchers extracted critical information by retrieving domain-oriented lexical units. However, even if corpus software embraces algorithms such as log-likelihood tests, log ratios, BIC scores, etc., the machine still cannot understand linguistic meanings. In many ESP cases, function words reduce the efficiency of corpus analysis. However, many studies still use manual approaches to eliminate function words. Manual annotation is inefficient and time-wasting, and can easily cause information distortion. To enhance the efficiency of big textual data analysis, this paper proposes a novel statistic-based corpus machine processing approach to refine big textual data. Furthermore, this paper uses COVID-19 news reports as a simulation example of big textual data and applies it to verify the efficacy of the machine optimizing process. The refined resulting data shows that the proposed approach is able to rapidly remove function and meaningless words by machine processing and provide decision-makers with domain-specific corpus data for further purposes.",
+        "doi": "10.3390/app10165505"
+      },
+      {
+        "id": "adacd8f78e78079a32fb4fb848c3bad50cc66cf6",
+        "title": "The Academic Literacies approach to scholarly writing: a view through the lens of the ESP/Genre approach",
+        "year": 2020,
+        "abstract": "ABSTRACT I first briefly review two paradigms for scholarly writing, namely the English for Specific Purposes (ESP) and Academic Literacies (Ac Lits) approaches. ESP has traditionally been considered as the dominant paradigm and Ac Lits as somewhat on the margins of academic writing theory and practice. My aim in this article is to illustrate which areas and methodologies from ESP, especially corpus-based techniques, could usefully inform Ac Lits. The findings from corpus-based studies on the research article genre can reveal authorial voice, power relations, identity construction, as well as cross-cultural and cross-linguistic features, important issues raised in the Ac Lits literature. Corpus research has also been useful in revealing the academic values inscribed in text through recurrent lexico-grammatical patterns. Corpus linguistic techniques, at present largely absent from Ac Lits methodologies, could be considered to supplement the various ethnographic approaches associated with Ac Lits.",
+        "doi": "10.1080/03075079.2019.1576165"
+      },
+      {
+        "id": "aa79512e85acc79593aeb38389c09de5d38e0f27",
+        "title": "Linguistic Resources to Facilitate Science Education",
+        "year": 2020,
+        "abstract": "The present study emphasizes the need to mobilize linguistic resources to facilitate science education. In a multilingual country like India, when students opt for science education through English at any level – secondary, higher secondary or tertiary – they face the daunting task of mastering language as well as science. A study of nearly 1.5 million word corpus of science textbooks has revealed the level of lexical difficulty faced by the learners. Hence researchers have created corpus based word lists for each level on the basis of ‘keyness’ and ‘frequency’. These could be powerful pedagogic tools to facilitate science education.",
+        "doi": "10.18520/cs/v118/i2/271-273"
+      },
+      {
+        "id": "45b9a89df06c59848a8a1f50e165c5b51b62a9ea",
+        "title": "Articulation Rate in American English in a Corpus of YouTube Videos",
+        "year": 2019,
+        "abstract": "Previous studies of the temporal organization of speech in American English have found differences in speaking or articulation rate according to speaker dialect or location, but small sample sizes and incomplete geographic coverage have limited the generalizability of the findings. In this study, articulation rates in American English are calculated from the automatic speech-to-text transcripts of more than 29,000 hours of video from local government and civic organization channels on YouTube from the 48 contiguous US states, containing more than 230 million individual word timings. Two questions are considered: are there regional differences in articulation rate? And do urban speakers articulate faster than rural speakers? The study presents several methodological innovations: first, it identifies a genre of regional speech suitable for interregional comparisons (meetings of local governments or civic organizations). Second, it introduces a new method for the calculation of articulation rate using cue and word timestamps from caption files. Third, it leverages US Census data to correlate the articulation rate with population for a large number of localities. The study shows that, in line with previous studies, Southerners articulate slower, and Americans from the Upper Midwest more quickly. In addition, there is a small but positive correlation between population size and articulation rate. Articulation rates are mapped using a measure of local autocorrelation.",
+        "doi": "10.1177/0023830919894720"
+      },
+      {
+        "id": "fafecf11da66e3cb654251e86d53b53ac34b63d4",
+        "title": "An attention-based deep learning model for clinical named entity recognition of Chinese electronic medical records",
+        "year": 2019,
+        "abstract": null,
+        "doi": "10.1186/s12911-019-0933-6"
+      },
+      {
+        "id": "0108a3c0a002e92af2c556858d28e55134409511",
+        "title": "Enriching the academic wordlist and Secondary Vocabulary Lists with lexicogrammar: Toward a pattern grammar of academic vocabulary",
+        "year": 2019,
+        "abstract": null,
+        "doi": "10.1016/j.system.2019.102158"
+      },
+      {
+        "id": "940201f64c339f7fba7e4eb59a58f93497be267c",
+        "title": "Big Data and Digital Aesthetic, Arts, and Cultural Education: Hot Spots of Current Quantitative Research",
+        "year": 2019,
+        "abstract": "Systematic reviews are the method of choice to synthesize research evidence. To identify main topics (so-called hot spots) relevant to large corpora of original publications in need of a synthesis, one must address the “three Vs” of big data (volume, velocity, and variety), especially in loosely defined or fragmented disciplines. For this purpose, text mining and predictive modeling are very helpful. Thus, we applied these methods to a compilation of documents related to digitalization in aesthetic, arts, and cultural education, as a prototypical, loosely defined, fragmented discipline, and particularly to quantitative research within it (QRD-ACE). By broadly querying the abstract and citation database Scopus with terms indicative of QRD-ACE, we identified a corpus of N = 55,553 publications for the years 2013–2017. As the result of an iterative approach of text mining, priority screening, and predictive modeling, we identified n = 8,304 potentially relevant publications of which n = 1,666 were included after priority screening. Analysis of the subject distribution of the included publications revealed video games as a first hot spot of QRD-ACE. Topic modeling resulted in aesthetics and cultural activities on social media as a second hot spot, related to 4 of k = 8 identified topics. This way, we were able to identify current hot spots of QRD-ACE by screening less than 15% of the corpus. We discuss implications for harnessing text mining, predictive modeling, and priority screening in future research syntheses and avenues for future original research on QRD-ACE.",
+        "doi": "10.1177/0894439319888455"
+      },
+      {
+        "id": "3301ecd9c4f3eb94bfbef74aaf3086d00bfe3dc2",
+        "title": "Voice Biometrics Security: Extrapolating False Alarm Rate via Hierarchical Bayesian Modeling of Speaker Verification Scores",
+        "year": 2019,
+        "abstract": null,
+        "doi": "10.1016/j.csl.2019.101024"
+      },
+      {
+        "id": "f369c10a345e9c74a74faa266bb3504c6f241824",
+        "title": "Evaluation of automatic annotation by a multi-terminological concepts extractor within a corpus of data from family medicine consultations",
+        "year": 2019,
+        "abstract": null,
+        "doi": "10.1016/j.ijmedinf.2019.104009"
+      },
+      {
+        "id": "7304dae7799d8456e8b4cb4e3925679d68a6b246",
+        "title": "How do textual features of L2 argumentative essays differ across proficiency levels? A multidimensional cross-sectional study",
+        "year": 2019,
+        "abstract": null,
+        "doi": "10.1007/S11145-019-09947-6"
+      },
+      {
+        "id": "2ca2ace89d97cf71cf54145eb8ddaf62a9addd97",
+        "title": "A case study of immersive virtual field trips in an elementary classroom: Students' learning experience and teacher-student interaction behaviors",
+        "year": 2019,
+        "abstract": null,
+        "doi": "10.1016/J.COMPEDU.2019.103600"
+      },
+      {
+        "id": "7d0104f75fe65f2ceae05c36fd60f00013340b88",
+        "title": "Discipline-specific use of language patterns in engineering: A comparison of published pedagogical materials",
+        "year": 2019,
+        "abstract": null,
+        "doi": "10.1016/J.JEAP.2019.100774"
+      },
+      {
+        "id": "ff336e68f6927d101b64978f1c94a2b4fdc42279",
+        "title": "A Review of Text Corpus-Based Tourism Big Data Mining",
+        "year": 2019,
+        "abstract": "With the massive growth of the Internet, text data has become one of the main formats of tourism big data. As an effective expression means of tourists’ opinions, text mining of such data has big potential to inspire innovations for tourism practitioners. In the past decade, a variety of text mining techniques have been proposed and applied to tourism analysis to develop tourism value analysis models, build tourism recommendation systems, create tourist profiles, and make policies for supervising tourism markets. The successes of these techniques have been further boosted by the progress of natural language processing (NLP), machine learning, and deep learning. With the understanding of the complexity due to this diverse set of techniques and tourism text data sources, this work attempts to provide a detailed and up-to-date review of text mining techniques that have been, or have the potential to be, applied to modern tourism big data analysis. We summarize and discuss different text representation strategies, text-based NLP techniques for topic extraction, text classification, sentiment analysis, and text clustering in the context of tourism text mining, and their applications in tourist profiling, destination image analysis, market demand, etc. Our work also provides guidelines for constructing new tourism big data applications and outlines promising research areas in this field for incoming years.",
+        "doi": "10.3390/APP9163300"
+      },
+      {
+        "id": "28709a1955583e4ce90656b663e33b3c0088d796",
+        "title": "From Information to Knowledge to Wisdom: the Cold War Battle for Information Superiority and Its Implications for Thriving in the Age of Data Smog",
+        "year": 2019,
+        "abstract": "Abstract This article employs a comparative historical perspective to narrow the gap in the existing knowledge of the origins of the trans-Atlantic information explosion phenomenon that dates back to the early decades of the twentieth century. The author examines the root cause of the unprecedented growth of the overall amount of documents through the lens of the rapid expansion of scientific and technical advances across the world and subsequent spread of modern technologies, particularly those applied to scientific and technical information (STI). The study’s focus is on two superpowers of the era: the thriving Soviet military-industrial complex that went hand in hand with the rise of the STI management system in the mid-twentieth century United States. By exploring the practices of a range of U.S. and Soviet information agencies, this research draws parallels with the current information overload and informs our judgment about the challenges and possibilities in scientific and scholarly research brought about by today’s global information age.",
+        "doi": "10.1515/libri-2018-0008"
+      },
+      {
+        "id": "d18fa36b911bebae21c9d640b601eabeabcce433",
+        "title": "A qualitative study on a situated experience of technology integration: reflections from pre-service teachers and students",
+        "year": 2019,
+        "abstract": "Abstract Integrating technology into the foreign language classroom has introduced challenging demands for prospective teachers in designing technology-enhanced lessons. Thus, careful guidance is required to help pre-service teachers identify, integrate, and reflect on appropriate technologies to create more learning opportunities. The present study aims to guide pre-service teachers in incorporating technology into their situated teaching practices during a 12-week practicum experience via a step-by-step training procedure. It explores both their own ideas and those of students about technology-enhanced lessons. For this purpose, eight pre-service teachers and 95 students in an English as a Foreign Language (EFL) context in Turkey participated in the study. Qualitative analyses of diaries and focus group interviews revealed that prospective teachers and their students had positive attitudes towards integrating technology into a second language and/or foreign language (L2) class albeit a few concerns and problems were raised. Technology-enhanced classes promoted language skills, contributed to creating a favorable and motivating learning atmosphere, fostered active participation, and helped pre-service teachers tailor their lessons to their students’ needs and interests. By offering a situated learning opportunity to incorporate technology into L2 classes blended with reflective practice, findings of the study may illuminate future practices for successful technology integration in language teaching.",
+        "doi": "10.1080/09588221.2018.1552974"
+      },
+      {
+        "id": "0e97155a576d7bda798089c5ddb55f335c704ddb",
+        "title": "A manual corpus of annotated main findings of clinical case reports",
+        "year": 2019,
+        "abstract": "Abstract Clinical case reports are the `eyewitness reports’ of medicine and provide a valuable, unique, albeit noisy and underutilized type of evidence. Generally a case report has a single main finding that represents the reason for writing up the report in the first place. In the present study, we present the results of manual annotation carried out by two individuals on 500 randomly sampled case reports. This corpus contains main finding sentences extracted from title, abstract and full-text of the same article that can be regarded as semantically related and are often paraphrases. The final reconciled corpus of 416 articles comprises an open resource for further study. This is the first step in establishing text mining models and tools that can identify main finding sentences in an automated fashion, and in measuring quantitatively how similar any two main findings are. We envision that case reports in PubMed may be automatically indexed by main finding, so that users can carry out information queries for specific main findings (rather than general topics)—and given one case report, a user can retrieve those having the most similar main findings. The metric of main finding similarity may also potentially be relevant to the modeling of paraphrasing, summarization and entailment within the biomedical literature.",
+        "doi": "10.1093/database/bay143"
+      },
+      {
+        "id": "81b1190c69edd17e6e03c088c7c0473bd586c341",
+        "title": "Computer-assisted detection of 90% of EFL student errors",
+        "year": 2018,
+        "abstract": "ABSTRACT Software can facilitate English as a Foreign Language (EFL) students’ self-correction of their free-form writing by detecting errors; this article examines the proportion of errors which software can detect. A corpus of 13,644 words of written English was created, comprising 90 compositions written by Spanish-speaking students at levels A2-B2 (inclusive) of the Common European Framework. A total of 1,310 language errors were detected by the researcher. It was found that approximately 21% of these errors were spelling errors. A further 58% were characterised as either two-word phrases (45%), three-word phrases (9%), or four- and five-word phrases (4%) which are either absent from or rare in a large corpus of English which is known to be correct. The nature of software which can detect such words and phrases and bring them to students’ attention with a view to self-correction is briefly described. Of the remaining 21% of errors not detected by such software, most were found to be either errors of tense (7%), misuse of false friends (4%) or problems with determiners (3%). Again, software which can help students detect and correct such errors is outlined. The limitations and pedagogical significance of the research are then briefly discussed.",
+        "doi": "10.1080/09588221.2017.1392322"
+      },
+      {
+        "id": "3a63d460afc291fe118052994e8e84f1a00ddc95",
+        "title": "Theory, the Final Frontier? A Corpus-Based Analysis of the Role of Theory in Psychological Articles",
+        "year": 2017,
+        "abstract": "Contemporary psychology regards itself as an empirical science, at least in most of its subfields. Theory building and development are often considered critical to the sciences, but the extent to which psychology can be cast in this way is under debate. According to those advocating a strong role of theory, studies should be designed to test hypotheses derived from theories (theory-driven) and ideally should yield findings that stimulate hypothesis formation and theory building (theory-generating). The alternative position values empirical findings over theories as the lasting legacy of science. To investigate which role theory actually plays in current research practice, we analyse references to theory in the complete set of 2,046 articles accepted for publication in Frontiers of Psychology in 2015. This sample of articles, while not representative in the strictest sense, covers a broad range of sub-disciplines, both basic and applied, and a broad range of article types, including research articles, reviews, hypothesis & theory, and commentaries. For the titles, keyword lists, and abstracts in this sample, we conducted a text search for terms related to empiricism and theory, assessed the frequency and scope of usage for six theory-related terms, and analyzed their distribution over different article types and subsections of the journal. The results indicate substantially lower frequencies of theoretical than empirical terms, with references to a specific (named) theory in less than 10% of the sample and references to any of even the most frequently mentioned theories in less than 0.5% of the sample. In conclusion, we discuss possible limitations of our study and the prospect of theoretical advancement.",
+        "doi": "10.3389/fpsyg.2017.00951"
+      },
+      {
+        "id": "2fd8dfdb8777c8ca40478764c6e8a495c0462cd6",
+        "title": "Using the flipped classroom to enhance EFL learning",
+        "year": 2017,
+        "abstract": "Instruction in English is a priority around the globe, but instructional methodologies have not always kept pace with the changing needs of students. To explore the benefits of the flipped classroom model for learners of English as a Foreign Language, the researchers used flipped learning and Wen's Output-driven/Input-enabled model to design a holistic oral training course that included extensive online written and verbal communication for the learning of a wide range of English idioms. The participants were 48 sophomore English majors in two required English oral training classes. A within-subjects research design exposed all participants to learning English idioms by flipped learning, using the LINE smartphone app, and by conventional instruction. A mixed research method was employed, using multiple sources of data collection, including pre- and post-tests on idioms, two questionnaires (“Perception of Flipped Learning Experience” and “Technology Acceptance Model”), the teachers' in-class observations, and semi-structured focus-group interviews. The results revealed that the theory-based flipped instruction using online written and oral interaction not only enhanced the participants' motivation, making them more active in using idioms in class, but also significantly improved their idiomatic knowledge, indicating that the flipped learning was successful in achieving the instructional goals of the class. The authors present insights into the impact of theory-based flipped learning on motivation and idiomatic acquisition; student impressions of the online platform used, LINE; and offer recommendations for practice.",
+        "doi": "10.1080/09588221.2015.1111910"
+      },
+      {
+        "id": "bca6a905e27253e9f066f80a515a98b69b19e461",
+        "title": "Disciplinary Literacy: Just the FAQs.",
+        "year": 2017,
+        "abstract": null,
+        "doi": "10.4324/9781315650555-12"
+      },
+      {
+        "id": "a7ca9ec9bd57396fe4e2da533fcce23c93d817e9",
+        "title": "University student and teacher perceptions of teacher roles in promoting autonomous language learning with technology outside the classroom",
+        "year": 2016,
+        "abstract": "Helping students to become autonomous learners, who actively utilize technologies for learning outside the classroom, is important for successful language learning. Teachers, as significant social agents who shape students’ intellectual and social experiences, have a critical role to play. This study examined students’ and teachers’ perceptions of the specific roles teachers may play in promoting autonomous language learning with technology outside the classroom. Interviews were conducted with 15 language learners and 10 language teachers at a university in Hong Kong. The study found mismatches between students’ and teachers’ perceptions of the degree of teacher involvement and the specific roles teachers could play. On the one hand, students expected teachers to play a greater role in supporting their autonomous learning with technology by recommending a variety of technological resources and sharing metacognitive and cognitive strategies for effective use of the resources. On the other hand, teachers expected to play a minimal role due to their overestimation of students’ capacities and their concern over their limited abilities to provide such support. The research findings indicate the importance of raising teachers’ awareness of the various roles their students expect them to play and of equipping teachers with the knowledge and skills to advise and support students in making use of technological resources outside the classroom for language learning.",
+        "doi": "10.1080/09588221.2015.1016441"
+      },
+      {
+        "id": "4fe8be650111e062837cd7ba1340055d3e225693",
+        "title": "A corpus analysis of discursive constructions of the Sunflower Student Movement in the English-language Taiwanese press",
+        "year": 2016,
+        "abstract": "The Sunflower Student Movement was a protest movement in Taiwan against a trade agreement with the People’s Republic of China (PRC) by students and civic groups, in which the national legislature was occupied by protesters between 18 March and 10 April 2014. This study examines the discursive constructions of this movement in the two major English-language newspapers in Taiwan, The China Post and the Taipei Times, in corpora of articles published in the six-month period after the protests began. The data were collected from the online editions of the newspapers and analysed utilising a corpus-driven approach. First, frequency lists of the corpora were studied and an in-depth analysis of collocates and concordances of certain frequent words was undertaken. This was followed by a study of keywords when each corpus was compared against the other. The findings demonstrate that one newspaper depicted the protests as a struggle for democracy, associating the protests with democracy movements from the past and emphasising the inclusivity of the movement, while the other media source constructed the protests more negatively, focusing on destabilising elements of the protests such as the economic consequences of the occupation, highlighting instances of violence and disruption to the status quo, as well as constructing the protesters as being unrepresentative of the general population of the island. The article concludes by critically discussing how the differing discursive constructions of the protest movement are representative of the divisions within the Taiwanese society in relation to questions of nationhood and its stance towards the increasing economic and political influence of the PRC.",
+        "doi": "10.1177/0957926515605957"
+      },
+      {
+        "id": "55e7d49c1ef8c7699237c89015c466fc87375e4d",
+        "title": "The vocabulary of agriculture semi-popularization articles in English: A corpus-based study",
+        "year": 2015,
+        "abstract": null,
+        "doi": "10.1016/J.ESP.2015.04.001"
+      },
+      {
+        "id": "e0241ca6939504b4d3e2e0671b0af55da35fa8ce",
+        "title": "A corpus-based environmental academic word list building and its validity test",
+        "year": 2015,
+        "abstract": null,
+        "doi": "10.1016/J.ESP.2015.03.001"
+      },
+      {
+        "id": "196ed65b5e7f5d8362caea6ebccc1abecc131df0",
+        "title": "Corpus-based versus traditional learning of collocations",
+        "year": 2015,
+        "abstract": "One of the aspects of knowing a word is the knowledge of which words it is usually used with. Since knowledge of collocations is essential for appropriate and fluent use of language, learning collocations should have a central place in the study of vocabulary. There are different opinions about the best ways of learning collocations. This study investigates the effectiveness of corpus-based activities for learning verb–adverb collocations compared to traditional activities usually found in course books. The test results show that the participants who learned the collocations with the help of the online concordancer gained more knowledge and had better results in all parts of the test.",
+        "doi": "10.1080/09588221.2013.803982"
+      },
+      {
+        "id": "35c0e1fbb0da4f6fe4c73ff12ec1a8bdb59ddd5d",
+        "title": "A corpus-assisted comparative genre analysis of corporate earnings calls between Korean and native-English speakers",
+        "year": 2013,
+        "abstract": null,
+        "doi": "10.1016/J.ESP.2013.03.001"
+      },
+      {
+        "id": "c2a17688b60db32aa1d810751e0ce2de7de9d01e",
+        "title": "Disciplinary Literacy and the Common Core State Standards",
+        "year": 2012,
+        "abstract": "The purpose of this article is to present a perspective on disciplinary literacy and the Common Core State Standards based on the argument that disciplinary literacy is embedded in the standards. The article highlights possibilities and challenges associated with national efforts to prepare students for success in college and the workforce. Information is presented on the basis of a selected literature review of disciplinary literacy, adolescent literacy, student achievement, and the common core standards. Instructional strategies also are presented for developing students' disciplinary literacy and meeting common core goals. In the article, I call for collaborative inquiry and shared accountability among stakeholders to ensure that all students' literacy and learning needs are met in a new era of educational reform.",
+        "doi": "10.1097/TLD.0b013e31824561a2"
+      },
+      {
+        "id": "fdd7365e9696b057fed8cfcad0d90b9f449ab101",
+        "title": "Concept Maps: Experiments on Dynamic Thinking.",
+        "year": 2007,
+        "abstract": "Three experiments were conducted to examine the effects of map structure, concept quantification, and focus question on dynamic thinking during a Concept Map (CMap) construction task. The first experiment compared cyclic and hierarchical structures. The second experiment examined the impact of the quantification of the header concept in the map. The third experiment explored the effect of the focus question on the map. For all three experiments, the content of the CMaps was assessed for the number of dynamic propositions and the number of quantified concepts. The results show that the cyclic structure, the quantification of the header concept, and the focus question “How” significantly increased dynamic thinking. The studies, the theoretical background, and the implications of the findings are discussed. © 2006 Wiley Periodicals, Inc. J Res Sci Teach 44: 448–465, 2007",
+        "doi": "10.1002/TEA.20153"
+      },
+      {
+        "id": null,
+        "title": "AntConc (Version 3.5.8): Corpus Software",
+        "year": 2019,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "Creating a novel type of information database of military terminology: an example of US Army medical and casualty evacuation",
+        "year": 2019,
+        "abstract": null
+      },
+      {
+        "id": "aa102a83757a8029e3c31099817cb6288efc3232",
+        "title": "A corpus-based study of vague language in legislative texts: Strategic use of vague terms",
+        "year": 2017,
+        "abstract": null,
+        "doi": "10.1016/J.ESP.2016.10.001"
+      },
+      {
+        "id": "2c22c810f13958bf566c3ae1ddf1ecf3e6efdb52",
+        "title": "A quantitative approach to the grammaticalization of discourse markers: Evidence from their sequencing behavior",
+        "year": 2015,
+        "abstract": "This article takes a quantitative approach to the grammar of English two-part discourse marker sequences like oh well, you know I mean, etc. We investigate the internal ordering preferences of such sequences in spoken American English corpus data from the perspective of grammaticalization. From this perspective, the development of many discourse markers can be understood as involving a process of increasing syntactic de-categorialization (Hopper 1991) as the grammaticalizing element loses its original grammatical constraints and comes to function as a marker at the level of discourse. We test the hypothesis that discourse marker grammaticalization results in largely unconstrained ordering possibilities. Our analysis shows that, on the contrary, discourse marker sequencing is highly constrained. We interpret these constraints in terms of Auer’s (1996) model of discourse marker grammaticalization. Discourse marker sequencing is characterized by strong persistence of a marker’s original syntactic category and reflects its specific grammaticalization trajectory.",
+        "doi": "10.1075/IJCL.20.2.04KOO"
+      },
+      {
+        "id": null,
+        "title": "Light Antiarmor Weapons: FM 3-23.25. US Department of the Army",
+        "year": 2001,
+        "abstract": null
+      },
+      {
+        "id": "4e6ef8792f701eb1710881a4526593dc37fa03af",
+        "title": "If you pop over there: a corpus-based study of conditionals in medical discourse",
+        "year": 2001,
+        "abstract": null,
+        "doi": "10.1016/S0889-4906(99)00027-7"
+      },
+      {
+        "id": "27cd662f8ac3b7ad17acfa0021752938f61a0ca5",
+        "title": "A Narrow-Angled Corpus Analysis of Moves and Strategies of the Genre: \"Letter of Application.\"",
+        "year": 2001,
+        "abstract": null,
+        "doi": "10.1016/S0889-4906(99)00037-X"
+      }
+    ]
+  },
+  {
+    "id": "c2d2942d9caa03ececf443950bc603232040665f",
+    "title": "Depthwise Separable Convolutional Neural Network for Confidential Information Analysis",
+    "year": 2020,
+    "abstract": null,
+    "doi": "10.1007/978-3-030-55393-7_40",
+    "references": [
+      {
+        "id": "9fe0215f6b81d2766c62ebd4439adc4acec1528b",
+        "title": "VACCINE: Using Contextual Integrity For Data Leakage Detection",
+        "year": 2019,
+        "abstract": "Modern enterprises rely on Data Leakage Prevention (DLP) systems to enforce privacy policies that prevent unintentional flow of sensitive information to unauthorized entities. However, these systems operate based on rule sets that are limited to syntactic analysis and therefore completely ignore the semantic relationships between participants involved in the information exchanges. For similar reasons, these systems cannot enforce complex privacy policies that require temporal reasoning about events that have previously occurred. To address these limitations, we advocate a new design methodology for DLP systems centered on the notion of Contextual Integrity (CI). We use the CI framework to abstract real-world communication exchanges into formally defined information flows where privacy policies describe sequences of admissible flows. CI allows us to decouple (1) the syntactic extraction of flows from information exchanges, and (2) the enforcement of privacy policies on these flows. We applied this approach to built VACCINE, a DLP auditing system for emails. VACCINE uses state-of-the-art techniques in natural language processing to extract flows from email text. It also provides a declarative language for describing privacy policies. These policies are automatically compiled to operational rules that the system uses for detecting data leakages. We evaluated VACCINE on the Enron email corpus and show that it improves over the state of the art both in terms of the expressivity of the policies that DLP systems can enforce as well as its precision in detecting data leakages.",
+        "doi": "10.1145/3308558.3313655"
+      },
+      {
+        "id": "22674e43aeaa781ff397c050a6cef90a77ed19fc",
+        "title": "Tourism demand forecasting: A deep learning approach",
+        "year": 2019,
+        "abstract": null,
+        "doi": "10.1016/J.ANNALS.2019.01.014"
+      },
+      {
+        "id": "7a4850271c42842038d371f34eb61e15daecb478",
+        "title": "Sentiment Embedded Semantic Space for More Accurate Sentiment Analysis",
+        "year": 2018,
+        "abstract": null,
+        "doi": "10.1007/978-3-319-99247-1_19"
+      },
+      {
+        "id": "9b2d736d972dea46cb60b6e4981672b6b312bb63",
+        "title": "Towards Automating Big Texts Security Classification",
+        "year": 2018,
+        "abstract": "The U.S Government has been the target of cyber-attacks from all over the world. Former President Obama accused the Russian government of leaking emails to WikiLeaks and declared that the U.S. might be forced to respond. While Russia denied involvement, it is clear that the U.S. has to take some defensive measures to protect its data infrastructure. In recent years, traditional cybersecurity safeguards have proven ineffective against insider threats. Insider threats have been the cause of other sensitive information leaks too, including the infamous Edward Snowden incident. Most of the recent leaks were in the form of text. Currently, unstructured sensitive texts are labeled manually by security officials of data owners. In an adversarial environment, insiders can leak texts through Email, printers, or any untrusted channels. Therefore the optimal defense is to automatically classify the security label of the unstructured text and enforce the appropriate protection mechanism without degrading services or daily tasks. Many researchers have focused on document-based classification with artificially labeled “confidential documents” for which security labels are assigned to the entire document when in reality only a portion of the document is sensitive. The drawback of this type of whole-document based security labeling is that it blocks the accesses of legitimate users to non-sensitive portions of the informa-"
+      },
+      {
+        "id": "90906a6fe6e6ce0eb0ec80c633c9610cedcfe74c",
+        "title": "Chinese Micro-Blog Sentiment Analysis Based on Multi-Channels Convolutional Neural Networks",
+        "year": 2018,
+        "abstract": null,
+        "doi": "10.7544/ISSN1000-1239.2018.20170049"
+      },
+      {
+        "id": "718e1b453fe9dce79458e0db035091db603775fb",
+        "title": "Deep Pyramid Convolutional Neural Networks for Text Categorization",
+        "year": 2017,
+        "abstract": "This paper proposes a low-complexity word-level deep convolutional neural network (CNN) architecture for text categorization that can efficiently represent long-range associations in text. In the literature, several deep and complex neural networks have been proposed for this task, assuming availability of relatively large amounts of training data. However, the associated computational complexity increases as the networks go deeper, which poses serious challenges in practical applications. Moreover, it was shown recently that shallow word-level CNNs are more accurate and much faster than the state-of-the-art very deep nets such as character-level CNNs even in the setting of large training data. Motivated by these findings, we carefully studied deepening of word-level CNNs to capture global representations of text, and found a simple network architecture with which the best accuracy can be obtained by increasing the network depth without increasing computational cost by much. We call it deep pyramid CNN. The proposed model with 15 weight layers outperforms the previous best models on six benchmark datasets for sentiment classification and topic categorization.",
+        "doi": "10.18653/v1/P17-1052"
+      },
+      {
+        "id": "3647d6d0f151dc05626449ee09cc7bce55be497e",
+        "title": "MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications",
+        "year": 2017,
+        "abstract": "We present a class of efficient models called MobileNets for mobile and embedded vision applications. MobileNets are based on a streamlined architecture that uses depth-wise separable convolutions to build light weight deep neural networks. We introduce two simple global hyper-parameters that efficiently trade off between latency and accuracy. These hyper-parameters allow the model builder to choose the right sized model for their application based on the constraints of the problem. We present extensive experiments on resource and accuracy tradeoffs and show strong performance compared to other popular models on ImageNet classification. We then demonstrate the effectiveness of MobileNets across a wide range of applications and use cases including object detection, finegrain classification, face attributes and large scale geo-localization."
+      },
+      {
+        "id": "f797fd44b9ddd5845611eb7a705ca9464a8819d1",
+        "title": "Very Deep Convolutional Networks for Text Classification",
+        "year": 2016,
+        "abstract": "The dominant approach for many NLP tasks are recurrent neural networks, in particular LSTMs, and convolutional neural networks. However, these architectures are rather shallow in comparison to the deep convolutional networks which have pushed the state-of-the-art in computer vision. We present a new architecture (VDCNN) for text processing which operates directly at the character level and uses only small convolutions and pooling operations. We are able to show that the performance of this model increases with the depth: using up to 29 convolutional layers, we report improvements over the state-of-the-art on several public text classification tasks. To the best of our knowledge, this is the first time that very deep convolutional nets have been applied to text processing.",
+        "doi": "10.18653/V1/E17-1104"
+      },
+      {
+        "id": "77f0a39b8e02686fd85b01971f8feb7f60971f80",
+        "title": "Identity Mappings in Deep Residual Networks",
+        "year": 2016,
+        "abstract": null,
+        "doi": "10.1007/978-3-319-46493-0_38"
+      },
+      {
+        "id": "51a55df1f023571a7e07e338ee45a3e3d66ef73e",
+        "title": "Character-level Convolutional Networks for Text Classification",
+        "year": 2015,
+        "abstract": "This article offers an empirical exploration on the use of character-level convolutional networks (ConvNets) for text classification. We constructed several large-scale datasets to show that character-level convolutional networks could achieve state-of-the-art or competitive results. Comparisons are offered against traditional models such as bag of words, n-grams and their TFIDF variants, and deep learning models such as word-based ConvNets and recurrent neural networks."
+      },
+      {
+        "id": "ee8755e1f519b7edec1ca6d076a9edb6c24af9ec",
+        "title": "Multichannel Variable-Size Convolution for Sentence Classification",
+        "year": 2015,
+        "abstract": "We propose MVCNN, a convolution neural network (CNN) architecture for sentence classification. It (i) combines diverse versions of pretrained word embeddings and (ii) extracts features of multigranular phrases with variable-size convolution filters. We also show that pretraining MVCNN is critical for good performance. MVCNN achieves state-of-the-art performance on four tasks: on small-scale binary, small-scale multi-class and largescale Twitter sentiment prediction and on subjectivity classification.",
+        "doi": "10.18653/v1/K15-1021"
+      },
+      {
+        "id": "a925892c520f2bda9d274bd64789130106392242",
+        "title": "Semi-supervised Convolutional Neural Networks for Text Categorization via Region Embedding",
+        "year": 2015,
+        "abstract": "This paper presents a new semi-supervised framework with convolutional neural networks (CNNs) for text categorization. Unlike the previous approaches that rely on word embeddings, our method learns embeddings of small text regions from unlabeled data for integration into a supervised CNN. The proposed scheme for embedding learning is based on the idea of two-view semi-supervised learning, which is intended to be useful for the task of interest even though the training is done on unlabeled data. Our models achieve better results than previous approaches on sentiment classification and topic classification tasks."
+      },
+      {
+        "id": "fbf417c83ae5b895fc645346e4efbf3a0aabeac9",
+        "title": "Effective Use of Word Order for Text Categorization with Convolutional Neural Networks",
+        "year": 2014,
+        "abstract": "Convolutional neural network (CNN) is a neural network that can make use of the internal structure of data such as the 2D structure of image data. This paper studies CNN on text categorization to exploit the 1D structure (namely, word order) of text data for accurate prediction. Instead of using low-dimensional word vectors as input as is often done, we directly apply CNN to high-dimensional text data, which leads to directly learning embedding of small text regions for use in classification. In addition to a straightforward adaptation of CNN from image to text, a simple but new variation which employs bag-of-word conversion in the convolution layer is proposed. An extension to combine multiple convolution layers is also explored for higher accuracy. The experiments demonstrate the effectiveness of our approach in comparison with state-of-the-art methods.",
+        "doi": "10.3115/v1/N15-1011"
+      },
+      {
+        "id": "1f6ba0782862ec12a5ec6d7fb608523d55b0c6ba",
+        "title": "Convolutional Neural Networks for Sentence Classification",
+        "year": 2014,
+        "abstract": "We report on a series of experiments with convolutional neural networks (CNN) trained on top of pre-trained word vectors for sentence-level classification tasks. We show that a simple CNN with little hyperparameter tuning and static vectors achieves excellent results on multiple benchmarks. Learning task-specific vectors through fine-tuning offers further gains in performance. We additionally propose a simple modification to the architecture to allow for the use of both task-specific and static vectors. The CNN models discussed herein improve upon the state of the art on 4 out of 7 tasks, which include sentiment analysis and question classification.",
+        "doi": "10.3115/v1/D14-1181"
+      },
+      {
+        "id": "b0aca3e7877c3c20958b0fae5cbf2dd602104859",
+        "title": "Deep Convolutional Neural Networks for Sentiment Analysis of Short Texts",
+        "year": 2014,
+        "abstract": "Sentiment analysis of short texts such as single sentences and Twitter messages is challenging because of the limited contextual information that they normally contain. Effectively solving this task requires strategies that combine the small text content with prior knowledge and use more than just bag-of-words. In this work we propose a new deep convolutional neural network that exploits from characterto sentence-level information to perform sentiment analysis of short texts. We apply our approach for two corpora of two different domains: the Stanford Sentiment Treebank (SSTb), which contains sentences from movie reviews; and the Stanford Twitter Sentiment corpus (STS), which contains Twitter messages. For the SSTb corpus, our approach achieves state-of-the-art results for single sentence sentiment prediction in both binary positive/negative classification, with 85.7% accuracy, and fine-grained classification, with 48.3% accuracy. For the STS corpus, our approach achieves a sentiment prediction accuracy of 86.4%."
+      },
+      {
+        "id": "27725a2d2a8cee9bf9fffc6c2167017103aba0fa",
+        "title": "A Convolutional Neural Network for Modelling Sentences",
+        "year": 2014,
+        "abstract": "The ability to accurately represent sentences is central to language understanding. We describe a convolutional architecture dubbed the Dynamic Convolutional Neural Network (DCNN) that we adopt for the semantic modelling of sentences. The network uses Dynamic k-Max Pooling, a global pooling operation over linear sequences. The network handles input sentences of varying length and induces a feature graph over the sentence that is capable of explicitly capturing short and long-range relations. The network does not rely on a parse tree and is easily applicable to any language. We test the DCNN in four experiments: small scale binary and multi-class sentiment prediction, six-way question classification and Twitter sentiment prediction by distant supervision. The network achieves excellent performance in the first three tasks and a greater than 25% error reduction in the last task with respect to the strongest baseline.",
+        "doi": "10.3115/v1/P14-1062"
+      },
+      {
+        "id": "93165991f0e471ca1aa4bae2f6a5e16e2390a0b7",
+        "title": "CIDetector: Semi-Supervised Method for Multi-Topic Confidential Information Detection",
+        "year": 2020,
+        "abstract": "Confidential information firewalling with text classifier is to identify the text containing confidential information whose publication might be harmful to national security, business trade, or personal life. Traditional methods, e.g., listing a set of suspicious keywords together with regular-expression based filter, fail to solve the multi-topic phenomenon, i.e., one text containing the confidential information with different topics. In this paper, we propose a semi-supervised method, CIDetector, for multi-topic confidential information detection. We introduce coarse confidential polarity as prior knowledge into word embeddings, which can regularize the distribution of words to have a clear task classification boundary. Then we introduce a multi-attention network classifier to extract task-related features and model dependencies between features for multi-topic classification. Experiments are conducted by real-world data from WikiLeaks and demonstrated the superiority of our proposed method.",
+        "doi": "10.3233/FAIA200299"
+      },
+      {
+        "id": "bfcbae7d491652f484f8de5519c8b7f5aa63077f",
+        "title": "Exploring Tourist Dining Preferences Based on Restaurant Reviews",
+        "year": 2019,
+        "abstract": "Dining is an essential tourism component that attracts significant expenditure from tourists. Tourism practitioners need insights into the dining behaviors of tourists to support their strategic planning and decision making. Traditional surveys and questionnaires are time consuming and inefficient in capturing the complex dining behaviors of tourists at a large scale. Thus far, the understanding about the dining preferences and opinions of different tourist groups is limited. This article aims to fill the void by presenting a method that utilizes online restaurant reviews and text processing techniques in analyzing the dining behaviors of tourists. The effectiveness of the proposed method is demonstrated in a case study on international tourists visiting Australia using a large-scale data set of more than 40,000 restaurant reviews made by tourists on 2,265 restaurants. The proposed method can help researchers gain comprehensive insights into the dining preferences of tourists.",
+        "doi": "10.1177/0047287517744672"
+      },
+      {
+        "id": "dd68cedb3f40e88189e01edf562b24586718cb2d",
+        "title": "A Two-Stage Model Based on BERT for Short Fake News Detection",
+        "year": 2019,
+        "abstract": null,
+        "doi": "10.1007/978-3-030-29563-9_17"
+      },
+      {
+        "id": "27ad54fa3ce0eea380c919381c3da3387a90f6cd",
+        "title": "Differentially Private Social Network Data Publishing",
+        "year": 2017,
+        "abstract": null,
+        "doi": "10.1007/978-3-319-62004-6_9"
+      }
+    ]
+  },
+  {
+    "id": "eb2eb51b7b70a5068b6cc4b47d9202c5d66de0b2",
+    "title": "A novel query expansion method for military news retrieval service",
+    "year": 2014,
+    "abstract": "Since most search engines retrieve documents strictly based on keywords, they cannot obtain other content that is similar in idea but different in keywords. Therefore, semantic query expansion is very important and ontology is a critical foundation for supporting semantic query expansion. Ontology has been used in Information Retrieval, Data Category, Library Sciences and Medical Sciences; however, its use is rare in the Military Domain. There are two purposes for this research. The first is to use a “Military Dictionary” database as a fundamental and combine it with the procedure of formal concept analysis to automatically construct the relationship between military ontology and vocabulary concepts. The second is to use military news from the “Defense Technology Military Database” as a training data resource, to design a novel query expansion with the Keyword to Formal Concept Query Expansion (K2FCQE) algorithm and then to proceed query mode verification. The results of this research verify that the K2FCQE is more efficient than other query expansions.",
+    "doi": "10.1109/IALP.2014.6973491",
+    "references": [
+      {
+        "id": "1ac244d106ef9db24a3ef2e5a5f05fd2e5ff16e4",
+        "title": "Similarity measures in formal concept analysis",
+        "year": 2011,
+        "abstract": null,
+        "doi": "10.1007/s10472-011-9257-7"
+      },
+      {
+        "id": "6ec3a96a592422a10eaf9d0637e35cc29100df16",
+        "title": "FCA based concept constructing and similarity measurement algorithms",
+        "year": 2010,
+        "abstract": "Traditionally information retrieval consists mainly of determining which documents of a collection contain the keywords in the user query. However, a growing number of tasks, especially those related to Semantic Web technologies and applications rely on accurately measuring the similarity between documents and online texts. Instead of giving the absolute similarity degree of two documents, this paper presents a semantic corpus and Formal Concept Analysis-based procedure to build the concept map for a given set of documents and quantify the semantic relations between the concepts. The proposed approach includes three algorithms - a) the concept lattice constructing algorithm, b) the concept similarity measure, and c) the sub-lattice similarity measure.",
+        "doi": "10.4156/IJACT.VOL3.ISSUE1.11"
+      },
+      {
+        "id": "2ea9908f62c2184ce2cd4670520a951d9df71d70",
+        "title": "Search Engine Query Expansion Using Japanese WordNet",
+        "year": 2010,
+        "abstract": "Nowadays, Internet users are familiar with the Web searching process; and searching is the most common task performed on the Web. However, the web search is especially difficult for beginners when they try to utilize a keyword query language. Subsequently, beginners usually try to find information with ambiguous queries. Users receive non-relevant information in response to queries. Our goal is to make the search process more convenient for them. We assume that top ranked returned pages are relevant to the user query. We find the most important terms on these pages. In addition to that, we get synonyms and hypernyms for the terms of the user query utilizing Japanese WordNet. We combine the aforementioned words together and this expanded query is then submitted to the search engine. These operations are done automatically by our prototype, so that the web searching process is easier for beginners. The experimental results showed that our query expansion technique can improve the search performance and has several advantages.",
+        "doi": "10.1109/HUMANCOM.2010.5563333"
+      },
+      {
+        "id": "17a258dd54c205b3d3f714ebf737b719254d896a",
+        "title": "Exploiting Gene Ontology to Conceptualize Biomedical Document Collections",
+        "year": 2008,
+        "abstract": null,
+        "doi": "10.1007/978-3-540-89704-0_26"
+      },
+      {
+        "id": "15960f4987549413e0ea00f27fb43557b7a9a343",
+        "title": "Computing Term-Concept Association in Semantic-Based Query Expansion: Computing Term-Concept Association in Semantic-Based Query Expansion",
+        "year": 2008,
+        "abstract": "In semantic-based query expansion, computing term-concept association is a key step in finding associated concepts to describe the needed query. A method called K2CM (keyword to concept method) is proposed to compute the term-concept association. In K2CM, the attaching relationship among term, document and concept together with term-concept co-occurrence relationship are introduced to compute term-concept association. The attaching relationship derives from the fact that a term is attached to some concepts in annotated corpus, where a term is in some documents and the documents are labeled with some concepts. For term-concept co-occurrence relationship, it is enhanced by the text distance and the distribution feature of term-concept pair in corpus. Experimental results of semantic-based search on three different corpuses show that compared with classical methods, semantic-based query expansion on the basis of K2CM can improve search effectiveness.",
+        "doi": "10.3724/SP.J.1001.2008.02043"
+      },
+      {
+        "id": "c3847ad077205791635bf93f033ef95c96eeb51c",
+        "title": "Improving web-query processing through semantic knowledge",
+        "year": 2008,
+        "abstract": null,
+        "doi": "10.1016/j.datak.2007.07.009"
+      },
+      {
+        "id": "200b1cc27177f216e429c8d2b55f2fc06f04e5a5",
+        "title": "Using Semantic Web Technologies to Analyze Learning Content",
+        "year": 2007,
+        "abstract": "The authors demonstrate how to use semantic Web technologies to improve the state-of-the-art in online learning environments and bridge the gap between students on the one hand, and authors or teachers on the other. The ontological framework presented here helps formalize learning object context as a complex interplay of different learning-related elements and shows how we can use semantic annotation to interrelate diverse learning artifacts. On top of this framework, the authors implemented several feedback channels for educators to improve the delivery of future Web-based courses.",
+        "doi": "10.1109/MIC.2007.116"
+      },
+      {
+        "id": "9dd7208a62a27d50f82ea8a10834b042b153d4c3",
+        "title": "A review of ontology based query expansion",
+        "year": 2007,
+        "abstract": null,
+        "doi": "10.1016/j.ipm.2006.09.003"
+      },
+      {
+        "id": "0c791f9d72bb83a4cef42a9dffe44f9ed13a9aa6",
+        "title": "Ontology-based concept similarity in Formal Concept Analysis",
+        "year": 2006,
+        "abstract": null,
+        "doi": "10.1016/j.ins.2005.11.014"
+      },
+      {
+        "id": "45080ea06b7c115c6f33206bce4949ab22911558",
+        "title": "Ontology construction for information classification",
+        "year": 2006,
+        "abstract": null,
+        "doi": "10.1016/j.eswa.2005.09.007"
+      },
+      {
+        "id": "1315c9e3809ef2a55ff840ff79294cd548c6005e",
+        "title": "Context-based ontology building support in clinical domains using formal concept analysis",
+        "year": 2003,
+        "abstract": null,
+        "doi": "10.1016/S1386-5056(03)00092-3"
+      },
+      {
+        "id": "c1c13dd4a4ac5713c308211150a4791ac98b8fc3",
+        "title": "Searching the Web: the public and their queries",
+        "year": 2001,
+        "abstract": "In studying actual Web searching by the public at large, we analyzed over one million Web queries by users of the Excite search engine. We found that most people use few search terms, few modified queries, view few Web pages, and rarely use advanced search features. A small number of search terms are used with high frequency, and a great many terms are unique; the language of Web queries is distinctive. Queries about recreation and entertainment rank highest. Findings are compared to data from two other large studies of Web queries. This study provides an insight into the public practices and choices in Web searching.",
+        "doi": "10.1002/1097-4571(2000)9999:9999<::AID-ASI1591>3.3.CO;2-I"
+      },
+      {
+        "id": "dc69c680484633f27962510ced7afb20f60065cb",
+        "title": "Query expansion using lexical-semantic relations",
+        "year": 1994,
+        "abstract": null,
+        "doi": "10.1007/978-1-4471-2099-5_7"
+      },
+      {
+        "id": "f6e3e57567e9803718623ec088cd7fea65cfbc9d",
+        "title": "Relevance weighting of search terms",
+        "year": 1976,
+        "abstract": "This paper examines statistical techniques for exploiting relevance information to weight search terms. These techniques are presented as a natural extension of weighting methods using information about the distribution of index terms in documents in general. A series of relevance weighting functions is derived and is justified by theoretical considerations. In particular, it is shown that specific weighted search methods are implied by a general probabilistic theory of retrieval. Different applications of relevance weighting are illustrated by experimental results for test collections.",
+        "doi": "10.1002/ASI.4630270302"
+      },
+      {
+        "id": "50ce6adf38ebe940741c7f664da06d701dadcd44",
+        "title": "IE evaluation: Criticisms and recommendations",
+        "year": 2004,
+        "abstract": "We survey the evaluation methodology adopted in Information Extraction (IE), as defined in the MUC conferences and in later independent efforts applying machine learning to IE. We point out a number of problematic issues that may hamper the comparison between results obtained by different researchers. Some of them are common to other NLP tasks: e.g., the difficulty of exactly identifying the effects on performance of the data (sample selection and sample size), of the domain theory (features selected), and of algorithm parameter settings. Issues specific to IE evaluation include: how leniently to assess inexact identification of filler boundaries, the possibility of multiple fillers for a slot, and how the counting is performed. We argue that, when specifying an information extraction task, a number of characteristics should be clearly defined. However, in the papers only a few of them are usually explicitly specified. Our aim is to elaborate a clear and detailed experimental methodology and propose it to the IE community. The goal is to reach a widespread agreement on such proposal so that future IE evaluations will adopt the proposed methodology, making comparisons between algorithms fair and reliable. In order to achieve this goal, we will develop and make available to the community a set of tools and resources that incorporate a standardized IE methodology."
+      },
+      {
+        "id": "9ba8322adfa39252a1756386dd1f64b004b6f5b5",
+        "title": "Quantitative Analysis of Context Field in Natural Language Processing",
+        "year": 2001,
+        "abstract": "Context is the necessary resource not only for corpus based linguistic but also for solving the problem in computational linguistics. But what is the size of context window? Because there is no method to define the effective field of context window by quantitative analysis, this paper put forward one computational method to do it with quantitative analysis. First, context position is weighted by information gain; second, the position weight function is constructed according to weight of context positions, and then the function is integraled to arrive to the information ratio 85% to define the size of windows. The result is [-8,+9] in Chinese and [-16,+13] in English for context window. The result explained quantitatively the value and function of context in natural language processing."
+      },
+      {
+        "id": "07b64a07e6d56a91f2471975a3922e3fcd9ff2d7",
+        "title": "Toward Distributed Use of Large-Scale Ontologies t",
+        "year": 1997,
+        "abstract": "Large scale knowledge bases systems are difficult and expensive to construct. If we could share knowledge across systems, costs would be reduced. However, because knowledge bases are typically constructed from scratch, each with their own idiosyncratic structure, sharing is difficult. Recent research has focused on the use of ontologies to promote sharing. An ontology is a hierarchically structured set of terms for describing a domain that can be used as a skeletal foundation for a knowledge base. If two knowledge bases are built on a common ontology, knowledge can be more readily shared, since they share a common underlying structure. This paper outlines a set of desiderata for ontologies, and then describes how we have used a large-scale (50,000+ concept) ontology develop a specialized, domain-specific ontology semiautomatically. We then discuss the relation between ontologies and the process of developing a system, arguing that to be useful, an ontology needs to be created as a \"living document\", whose development is tightly integrated with the system’s. We conclude with a discussion of Web-based ontology tools we are developing to support this approach."
+      },
+      {
+        "id": null,
+        "title": "Formica . ” Ontology - based concept similarity in Formal Concept Analysis",
+        "year": 2006,
+        "abstract": null
+      },
+      {
+        "id": null,
+        "title": "Computing Term - Concept Association in Semantic - Based Query Expansion Quantitative analysis of context field in natural language Processing",
+        "year": null,
+        "abstract": null
+      },
+      {
+        "key": "ref15",
+        "doi-asserted-by": "publisher",
+        "doi": "10.3724/SP.J.1001.2008.02054"
+      },
+      {
+        "key": "ref4",
+        "doi-asserted-by": "publisher",
+        "doi": "10.1002/1097-4571(2000)9999:9999<::AID-ASI1591>3.0.CO;2-R"
+      },
+      {
+        "key": "ref2",
+        "first-page": "33",
+        "author": "swartout",
+        "year": "1996",
+        "journal-title": "Proc 10th Knowledge Acquisition for Knowledge-Based Systems Workshop",
+        "title": "Toward distributed use of large-scale ontologies"
+      }
+    ]
+  }
+]
