@@ -35,10 +35,21 @@ export async function fetchMultiplePapaerData(papaers){
 
 export async function enrichReferences(references) {
     if (references && Array.isArray(references)) {
-        const listOfReferencesToEnrich = references.filter(ref => ref.doi && !ref.id).map(ref => `DOI:${ref.doi}`);
-        return listOfReferencesToEnrich.length > 0 ? batchLimiter.schedule(() => makeBatchApiRequest(listOfReferencesToEnrich)) : [];
+        const referencesWithDOI = references.filter(ref => ref.doi && !ref.id).map(ref => `DOI:${ref.doi}`);
+        const referencesWithoutDOI = references.filter(ref => !ref.doi && ref.title && !ref.id);
+
+        // Continue with batch processing for references with DOI
+        const enrichedWithDOI = referencesWithDOI.length > 0 ? await batchLimiter.schedule(() => makeBatchApiRequest(referencesWithDOI)) : [];
+
+        // Process references without DOI individually
+        const enrichedWithoutDOI = referencesWithoutDOI.length > 0 ? await Promise.all(referencesWithoutDOI.map(ref => makeApiRequest(ref.title, 'Title'))) : [];
+
+        // Combine results
+        return [...enrichedWithDOI, ...enrichedWithoutDOI];
     }
+    return [];
 }
+
 
 async function makeBatchApiRequest(paperIds) {
     try {
@@ -83,8 +94,15 @@ async function makeApiRequest(paperId, type) {
                 url = `${API_BASE_URL}arXiv:${encodeURIComponent(paperId)}`;
                 break;
             case 'Title':
-                url = `${API_BASE_URL}paper/search?query=${encodeURIComponent(paperId)}&limit=1`;
-                break;
+                url = `${GRAPH_API_URL}search?query=${encodeURIComponent(paperId)}&limit=1&fields=title,year,externalIds,abstract`;
+                const response = await axios.get(url, {
+                    headers: { 'x-api-key': API_KEY }
+                });
+                const data = response.data?.data;
+                if (data && data.length > 0 && data[0].title.toLowerCase() === paperId.toLowerCase()) {
+                    return data[0]; // Return the first paper if the title matches
+                }
+                return {title: paperId}; 
             default:
                 throw new Error(`Unknown paper ID type: ${type}`);
         }
@@ -92,7 +110,7 @@ async function makeApiRequest(paperId, type) {
         const response = await axios.get(url, {
             headers: { 'x-api-key': API_KEY }
         });
-        return response.data;
+        return response.data?.data;
     } catch (error) {
         console.error(`Error fetching paper data (${paperId}):`, error.message);
         return null;

@@ -26,7 +26,7 @@ async function fetchAndProcessSemanticScholarReferences(paper) {
 
 async function fetchAndProcessCrossrefReferences(doi) {
     const references = await fetchCrossrefReferences(doi);
-    return references.map(ref => processPaperData(ref)); // Assuming processPaperData can handle CrossRef references
+    return references && references.lenght > 0 ? references.map(ref => processPaperData(ref)) : []; // Assuming processPaperData can handle CrossRef references
 }
 
 function mergeEnrichedReferences(mergedReferences, enrichedReferences) {
@@ -43,17 +43,24 @@ function mergeEnrichedReferences(mergedReferences, enrichedReferences) {
 }
 
 async function main() {
+    console.log('Reading paper IDs...');
     const papers = await readPaperIds(PAPER_IDS_FILE);
     const processedPapers = papers.knownIdsWithType 
         ? await fetchMultiplePapaerData(papers.knownIdsWithType) : [];
+    console.log(`Processing ${processedPapers.length} papers...`);
     const enrichedPapers = await Promise.all(processedPapers.map(async paper => {
+        console.log(`Processing paper: '${paper.title}' ${paper.externalIds?.DOI}`);
         const processedPaper = processPaperData(paper);
         if (processedPaper) {
+            console.log(`Enriching and merging references for ${paper.externalIds?.DOI}.`);
             processedPaper.references = await enrichAndMergeReferences(processedPaper);
+            console.log(`Found ${processedPaper.references.length} references for ${paper.externalIds?.DOI}.`);
             return processedPaper;
         }
     }));
+    console.log('Saving processed papers to file...');
     saveToFile('processedPapers.json', enrichedPapers.filter(Boolean));
+    console.log('Processing completed.');
 }
 
 main();
