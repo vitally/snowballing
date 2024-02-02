@@ -1,6 +1,6 @@
-# Semantic Scholar and CrossRef Reference Enricher
+# Semantic Scholar and CrossRef for Snowballing Reviews
 
-This Node.js application is designed to enhance and merge scholarly paper references. It utilizes the Semantic Scholar and CrossRef APIs to fetch, process, and consolidate reference data, ensuring a comprehensive and enriched dataset.
+This Node.js application is created to assist with scholarly paper reference retrievals. It utilizes the Semantic Scholar and CrossRef APIs to fetch, process, and consolidate reference data to contain titles and abstracts of references, so that it is easier to pick what's needed for further research.
 
 ## Features
 
