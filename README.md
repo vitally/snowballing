@@ -33,10 +33,6 @@ Run the application using: node app.js
 The app will read paperIds.txt file an make necessary requests to "Semantic Scholar" and "CrossRef" to fill the papers' data and collect references. Currently the file supports DOIs, SemanticScholar CourpusId, and arXivId.
 The outputs are stored in processedPapers.json file.
 
-## TODO
-The next step is to extend search capabilities using titles of the papers
-
-
 ## Contributing
 
 Feel free to fork the repository, make improvements, and submit pull requests. We appreciate your contributions to enhance the functionality and performance of this application.

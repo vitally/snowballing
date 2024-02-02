@@ -20,7 +20,7 @@ export async function fetchCrossrefReferences(doi) {
         const references = response.data.message.reference;
         return references;
     } catch (error) {
-        console.error('Error fetching data from Crossref:', error.message);
+        console.error(`Error fetching data from Crossref while processing ${doi}: ${error.message}`);
         return null;
     }
 }
