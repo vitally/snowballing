@@ -1,7 +1,7 @@
 {
-  "name": "semantic-scholar",
+  "name": "snowballing-reviews",
   "version": "1.0.0",
-  "description": "",
+  "description": "This Node.js application is created to assist with scholarly paper reference retrievals. It utilizes the Semantic Scholar and CrossRef APIs to fetch, process, and consolidate reference data to contain titles and abstracts of references, so that it is easier to pick what's needed for further research.",
   "main": "app.js",
   "type": "module",
   "scripts": {
