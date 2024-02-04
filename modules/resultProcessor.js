@@ -63,6 +63,20 @@ export function mergeReferences(referencesFromSemanticScholar, referencesFromCro
     return mergedReferences;
 }
 
+export function consolidateUniqueReferences(papers) {
+    const allReferences = papers
+        .flatMap(paper => paper.references || []) // Collect all references
+        .reduce((unique, ref) => {
+            const key = (ref.doi || ref.title.toLowerCase()); // Convert title to lowercase
+            if (!unique.some(r => (r.doi || r.title.toLowerCase()) === key)) {
+                unique.push(ref);
+            }
+            return unique;
+        }, []);
+
+    console.log('Unique references have been processed.');
+    return  allReferences;
+}
 
 function renameProperties(obj, nameMap) {
     Object.keys(nameMap).forEach(oldProp => {

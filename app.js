@@ -1,7 +1,7 @@
 // app.js
 import { readPaperIds } from './modules/fileReader.js';
 import { fetchSemanticScholarReferences, fetchMultiplePapaerData, enrichReferences } from './modules/semanticScholar.js';
-import { processPaperData, mergeReferences } from './modules/resultProcessor.js';
+import { processPaperData, mergeReferences, consolidateUniqueReferences } from './modules/resultProcessor.js';
 import { fetchCrossrefReferences } from './modules/crossrefClient.js';
 import { saveToFile } from './modules/fileWriter.js';
 
@@ -60,6 +60,8 @@ async function main() {
     }));
     console.log('Saving processed papers to file...');
     saveToFile('processedPapers.json', enrichedPapers.filter(Boolean));
+    const uniqueReferences = consolidateUniqueReferences(enrichedPapers);
+    saveToFile('uniqueReferences.json', uniqueReferences.filter(Boolean));
     console.log('Processing completed.');
 }
 
