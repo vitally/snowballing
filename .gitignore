@@ -2,3 +2,5 @@
 node_modules/
 .vscode/
 processedPapers.json
+uniqueReferences.json
+.DS_Store
